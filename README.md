@@ -24,5 +24,9 @@ Run `yo luke`
 yo luke
 ```
 
+## License
+
+[BSD license](http://opensource.org/licenses/bsd-license.php)
+
 
 

@@ -1,0 +1,18 @@
+language: node_js
+node_js:
+ - "4"
+
+branches:
+ only:
+  - master
+
+notifications:
+ email:
+  on_failure: always
+
+install: true
+
+deploy:
+ provider: npm
+ email: "luke@c2cschools.com"
+ api_key: "$NPM_API_KEY"
