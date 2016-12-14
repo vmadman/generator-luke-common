@@ -25,6 +25,7 @@ exec_github_script "yum-install-git"
 exec_github_script "yum-install-node-js"
 exec_github_script "npm-install-yeoman"
 exec_github_script "npm-create-global-link"
+exec_github_script "gem-install-travis-cli"
 
 #exec_github_script "npm-install-pm2"
 #exec_github_script "npm-install-livereloadx"

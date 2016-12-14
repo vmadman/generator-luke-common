@@ -19,4 +19,4 @@ GITHUB_SCRIPT_PATH="vagrant/centos7/dev/v1"
 source "$PROVISION_SCRIPT_ROOT/github-exec.sh"
 
 # Run Several Scripts from GitHub Files..
-#exec_github_script "npm-create-dep-symlink"
+exec_github_script "gem-install-travis-cli"

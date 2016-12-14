@@ -1,18 +1,18 @@
 language: node_js
 node_js:
- - "4"
-
+- '6'
 branches:
- only:
+  only:
   - master
-
 notifications:
- email:
-  on_failure: always
-
+  email:
+    on_failure: always
 install: true
-
 deploy:
- provider: npm
- email: "luke@c2cschools.com"
- api_key: "$NPM_API_KEY"
+  provider: npm
+  email: npm@lukechavers.com
+  api_key:
+    secure: XIsO41SUT3+hihHnVKxS8Mv1PPEO00NsY+nvU6cgU8RNl7UGtevMSih37HDMOC/k8n0ZTP0PCuIdGKMoBi+AIpLN+n2VXRG2rr9ZRRAgf1K5Gc1t6Ae6hdYjorpivvFzvAurZJCXAUa1dysK2ZAnZ/UUq7mkvTXp33aJ4bXSZc4YdkihMDtpevdm3dRaOe1ZRbyxCXN7kOso0YoCBlLnMH1Zm5J5p/GESS9CmnsSUFiQVcQgBO7hzCEPaEaKF2KZKcXEEbh7f7+v/N1rPhnbLeFYfVOps3XdDfP2L0yDGCgmzicyPoI3TBRBDWXacK7hjVw8nls5+RtCsH5AI/cYcWUHSg/YYyI1K94bWJF1A14uxL3dDtbqSSkdTq13Q72pnKTymXHhjZYymo+Eat4xtqxN8WxZiiiX0/y0oPPNrvNX8AxKVD73V6YUx+ClebltquaKXqOmoJMj8Phf6e7E4jXBz3zFvoogsKzmjUc2TS1KGgPqDvLkdSkWqaTY65IY1ZWFwbajTicc2scDk2AWt++3JXVD0r1grLkViW032NTtR2ijNWOIKI469HVvttltxIVWlpPs1ciXoz0Jg8jDF1edoiBQ14mmdR4PA6/wbv4ntYN5yn2fLII7Rr8YnzzCXvJQrx16XYiXaH9CWXeKCezA5rukfxMufK/8DfWuz1M=
+  on:
+    tags: true
+    repo: vmadman/generator-luke-common
