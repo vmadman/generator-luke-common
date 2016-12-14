@@ -14,21 +14,40 @@ structure.  Although it was built for my own use, anyone can use it.
 
 ## Basic Usage
 
-### Install
-
-Install `yo`, and `generator-luke`:
+### Install w/ NPM
 
 ```
-npm install -g yo generator-luke
+$ npm install -g yo generator-luke
 ```
 
-### Run it
+### Usage Examples
 
-Run `yo luke`
+Creating a project using the [default scaffold](docs/generators.md#project-scaffolds-1) ..
 
 ```
-yo luke
+$ mkdir myproject
+$ cd myproject
+$ yo luke
 ```
+
+Creating a project using a different [project scaffold](docs/generators.md#project-scaffolds-1) ..
+
+```
+$ mkdir myproject
+$ cd myproject
+$ yo luke:module
+```
+
+Using [partials](docs/generators.md#partials-1) to build individual components for a new or existing project..
+
+```
+$ mkdir myproject
+$ cd myproject
+$ yo luke:vagrant
+```
+
+Full usage information can be found in the "[Sub-Generators](docs/generators.md)" documentation.
+
 
 ## Documentation
 
