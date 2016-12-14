@@ -1,6 +1,6 @@
 {
   "name": "generator-luke",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Luke's Yeoman Generator",
   "license": "MIT",
   "repository": "https://github.com/vmadman/generator-luke-common",
@@ -11,7 +11,7 @@
   },
   "scripts": {},
   "files": [
-    "generators"
+    "generators", "templates", "docs"
   ],
   "keywords": [
     "yeoman-generator"
