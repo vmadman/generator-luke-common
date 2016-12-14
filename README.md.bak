@@ -1,0 +1,18 @@
+Keeping this for a minute ..
+==============================
+
+[![Build Status](https://travis-ci.com/c2cs/node-yeoman-c2c.svg?token=wz1tAqeFv4sS6EY7isyU&branch=master)](https://travis-ci.com/c2cs/node-yeoman-c2c)
+
+This project is one part of the "C2C Devlibs", which is a standard toolset for 
+C2C development in Node.js.  This repository and project, specifically, contains 
+the Yeoman (http://yeoman.io/) generators for C2C project scaffolding.
+
+---
+ 
+More information about this project can be found in the C2C Development Wiki:
+* http://dev.c2c.local/#!/md/projects/devlibs/index.md
+
+## Development Links
+
+* [Travis-CI Project Page](https://travis-ci.com/c2cs/node-yeoman-c2c)
+* [GitHub Project Page](https://github.com/c2cs/node-yeoman-c2c)
