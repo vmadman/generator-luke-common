@@ -23,14 +23,14 @@ fundamental, types of generators...
 
 These create a full project scaffold.  The default sub-generator, `luke:app`,
 creates a minimal scaffold.  The other project scaffolds create more specific
-scaffolds that include additional features.
+scaffolds that include additional components (partials).
 
 ### Partials
 
 Partials are composable scaffold components that include a relatively small
 number of files and directories.
 
-Project scaffolds are, actually, just a particular grouping of scaffolds.
+Project scaffolds are, actually, just a particular grouping of partials.
 Depending on the project type, different partials are mixed together to form the
 final scaffold.
 
@@ -48,9 +48,21 @@ you expect.
 ### Project Scaffolds
 
 * `luke:app` *(default)* - A minimal scaffold applicable to most of my projects.
+* `luke:module` - A generic scaffold for Node.js module projects
 
 ### Partials
 
+* `luke:bower` - Creates the [Bower](https://bower.io/) meta files
+* `luke:editor` - Adds editor configuration meta (.editorconfig)
 * `luke:env-dir` - Creates the `env/` directory and a few placeholder README files.
+* `luke:git` - Creates a few GIT meta files
+* `luke:js` - Adds meta files for JS development, such as linting configurations
+* `luke:mit-license` - Adds a LICENSE.md file with an MIT license
+* `luke:mocha` - Adds a basic mocha scaffold for JS unit tests
+* `luke:npm` - Adds basic NPM meta files (.npmignore and .npmrc)
+* `luke:package` - Creates a basic `package.json` file
+* `luke:readme` - Creates a basic `README.md` with a generic message/description
+* `luke:scripts` - Adds a scripts directory for `npm run` executions
+* `luke:test-dir` - Creates the fundamental directories for unit testing (`test/`)
 * `luke:vagrant` - Creates a basic Vagrant configuration w/ provisioning steps
 

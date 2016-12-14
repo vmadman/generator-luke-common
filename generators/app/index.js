@@ -24,14 +24,12 @@ module.exports = yeoman.Base.extend({
 		var me = this;
 
 		// Compose
-		/*
-		me.composeWith("c2c:circ");
-		me.composeWith("c2c:package");
-		me.composeWith("c2c:license");
-		me.composeWith("c2c:readme");
-		me.composeWith("c2c:git");
-		me.composeWith("c2c:scripts");
-		*/
+		me.composeWith("luke:package");
+		me.composeWith("luke:mit-license");
+		me.composeWith("luke:readme");
+		me.composeWith("luke:git");
+		me.composeWith("luke:editor");
+		me.composeWith("luke:scripts");
 		me.composeWith("luke:vagrant");
 
 	},

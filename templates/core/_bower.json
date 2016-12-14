@@ -1,0 +1,22 @@
+{
+	"name"         : "<%= name %>",
+	"version"      : "0.1.0",
+	"description"  : "See package.json",
+	"moduleType"   : [
+		"node"
+	],
+	"keywords"     : [
+	],
+	"authors"      : [
+		"<%= author %> <<%= email %>>"
+	],
+	"ignore"       : [
+		"**/.*",
+		"node_modules",
+		"bower_components",
+		"test",
+		"tests"
+	],
+	"dependencies" : {
+	}
+}

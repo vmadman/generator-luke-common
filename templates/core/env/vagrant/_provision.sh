@@ -3,6 +3,9 @@
 # This script is executed by Vagrant during provisioning (which happens
 # only once, whenever a new VM is created, or when manually executed).
 
+# A list of all available scripts can be found here:
+# - https://github.com/vmadman/linux-scripts/tree/master/vagrant/centos7/dev/v1
+
 # Define script location
 PROVISION_SCRIPT_ROOT="/project/env/vagrant"
 

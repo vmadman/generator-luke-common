@@ -1,0 +1,40 @@
+{
+	"env": {
+		"browser": false,
+		"node": true
+	},
+	"global-strict": [2, "always"],
+	"rules": {
+		"no-multi-spaces": 0,
+		"no-underscore-dangle": 0,
+		"eqeqeq": [2, "smart"],
+		"no-unused-vars": 0,
+		"no-mixed-spaces-and-tabs": 2,
+		"key-spacing": 0,
+		"one-var": 2,
+		"comma-style": [2, "last"],
+		"no-use-before-define": [2, "nofunc"],
+		"no-spaced-func": 2,
+		"func-names": 1,
+		"func-style": [2, "declaration"],
+		"no-lonely-if": 2,
+		"no-ternary": 2,
+		"no-nested-ternary": 2,
+		"space-in-parens": 0,
+		"dot-notation": 0,
+		"radix": 2,
+		"no-fallthrough": 0,
+		"no-mixed-requires": 0,
+		"no-process-exit" : 0,
+		"new-cap" : 0
+	},
+	"globals": {
+		"tipe"		: false,
+		"promise"	: false,
+		"describe"	: false,
+		"it"		: false,
+		"expect"	: false,
+		"before"	: false,
+		"g"			: true
+	}
+}

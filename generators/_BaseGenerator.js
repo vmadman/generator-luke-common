@@ -90,9 +90,16 @@ module.exports = yeoman.Base.extend(
 					askAgain	: false
 				}, {
 					type        : "input",
-					name        : "gitGroup",
-					message     : "Which GitLab group does this project belong to?",
-					default     : "NodeJS",
+					name        : "githubOwner",
+					message     : "Which GitHub user or organization owns the repo for this project?",
+					default     : "github",
+					cacheMode	: "prefer-cache",
+					askAgain	: false
+				}, {
+					type        : "input",
+					name        : "gitRepoName",
+					message     : "What is the name of this project's Git repository?",
+					default     : me.appname,
 					cacheMode	: "prefer-cache",
 					askAgain	: false
 				}
@@ -619,14 +626,6 @@ module.exports = yeoman.Base.extend(
 				props.parsedProject = "";
 			}
 
-			// Parse the GitLab group name
-			if( props.gitGroup !== undefined ) {
-				props.parsedGroup = props.gitGroup
-					.toLowerCase();
-			} else {
-				props.parsedGroup = "";
-			}
-
 			// Trim dashes from front and back of project
 			if( props.parsedProject !== undefined ) {
 				props.parsedProject = props.parsedProject.replace(/(^-|-$)/ig, '');
@@ -634,6 +633,28 @@ module.exports = yeoman.Base.extend(
 				props.parsedProject = "";
 			}
 
+			// Parse the git repo name
+			if( props.gitRepoName !== undefined ) {
+				props.parsedRepoName = props.gitRepoName
+					.toLowerCase()
+					.replace(/[^a-z0-9]+/g, "-");
+			} else {
+				props.parsedRepoName = "";
+			}
+
+			// Trim dashes from front and back of gir repo
+			if( props.parsedRepoName !== undefined ) {
+				props.parsedRepoName = props.parsedRepoName.replace(/(^-|-$)/ig, '');
+			} else {
+				props.parsedRepoName = "";
+			}
+			
+			// Parse the GitHub owner name
+			if( props.githubOwner !== undefined ) {
+				props.parsedGitHubOwner = props.githubOwner.toLowerCase();
+			} else {
+				props.parsedGitHubOwner = "";
+			}
 
 		},
 
