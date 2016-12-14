@@ -46,7 +46,7 @@ $ cd myproject
 $ yo luke:vagrant
 ```
 
-Full usage information can be found in the "[Sub-Generators](docs/generators.md)" documentation.
+Additional information can be found in the "[Sub-Generators](docs/generators.md)" documentation.
 
 
 ## Documentation
