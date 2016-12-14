@@ -24,6 +24,10 @@ Run `yo luke`
 yo luke
 ```
 
+## Documentation
+
+* **[Sub-Generators](docs/generators.md)** - Usage information for all available sub-generators within this project.
+
 ## License
 
 [See LICENSE.md](LICENSE.md)
