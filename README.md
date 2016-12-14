@@ -26,7 +26,7 @@ yo luke
 
 ## License
 
-[BSD license](http://opensource.org/licenses/bsd-license.php)
+[See LICENSE.md](LICENSE.md)
 
 
 
