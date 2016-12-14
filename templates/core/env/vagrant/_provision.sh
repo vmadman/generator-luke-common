@@ -1,10 +1,7 @@
 #!/bin/bash
 
-
-
 # This script is executed by Vagrant during provisioning (which happens
 # only once, whenever a new VM is created, or when manually executed).
-
 
 # Define script location
 PROVISION_SCRIPT_ROOT="/project/env/vagrant"
@@ -21,17 +18,9 @@ source "$PROVISION_SCRIPT_ROOT/github-exec.sh"
 # Run Several Scripts from GitHub Files..
 exec_github_script "yum-update-cache"
 exec_github_script "yum-install-common"
-exec_github_script "yum-install-git"
-exec_github_script "yum-install-node-js"
-exec_github_script "npm-install-yeoman"
-exec_github_script "npm-create-global-link"
-
-#exec_github_script "npm-install-pm2"
-#exec_github_script "npm-install-livereloadx"
-#exec_github_script "npm-install-grunt-cli"
-#exec_github_script "npm-create-dep-symlink"
-#exec_github_script "npm-install-deps"
-#exec_github_script "gem-install-travis-cli"
+<% steps.forEach( function( scriptName ) { -%>
+exec_github_script "<%= scriptName %>"
+<% }); %>
 
 # Project Specific Scripts
-#"$PROVISION_SCRIPT_ROOT/do-something.sh"
+# "$PROVISION_SCRIPT_ROOT/project/some-script-here.sh"
