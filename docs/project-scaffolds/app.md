@@ -1,4 +1,4 @@
-# Project Scaffold: "luke:app"
+# Project Scaffold: "luke:app" ([source](../../generators/app/index.js))
 
 A [project scaffold](../project-scaffolds.md) that can be used to create or
 recreate a basic, minimal, project.
@@ -38,6 +38,7 @@ included as [partial dependencies](../partials.md#partial-dependency)._
 
 # Further Reading
 
+* [Source](../../generators/app/index.js) - The source code for this [project scaffold](../project-scaffolds.md)
 * [Project Scaffold Listing](./) - Individual docs for each [project scaffold](../project-scaffolds.md)
 * [About Project Scaffolds](../project-scaffolds.md) - Basic information about project scaffolds
 * [About Partials](../partials.md) - Information about partials

@@ -1,7 +1,10 @@
-# Project Scaffold: "luke:module"
+# Project Scaffold: "luke:module" ([source](../../generators/module/index.js))
 
 A [project scaffold](../project-scaffolds.md) that can be used to create or
-recreate a basic, minimal, project.
+recreate a basic Node.js module.
+
+This scaffold includes everything that the [minimal scaffold](app.md) includes
+as well as a few additional [partials](../partials.md) for Node.js development.
 
 ## Usage Example
 
@@ -30,6 +33,7 @@ included as [partial dependencies](../partials.md#partial-dependency)._
 
 # Further Reading
 
+* [Source](../../generators/module/index.js) - The source code for this [project scaffold](../project-scaffolds.md)
 * [Project Scaffold Listing](./) - Individual docs for each [project scaffold](../project-scaffolds.md)
 * [About Project Scaffolds](../project-scaffolds.md) - Basic information about project scaffolds
 * [About Partials](../partials.md) - Information about partials
