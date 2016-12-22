@@ -26,11 +26,6 @@ $ cd myproject
 $ yo luke:module
 ```
 
-# Extensions
-
-Some project scaffolds may extend others and, thus, will include all of the
-partials of their "children" (those that they extend) recursively.
-
 # Project Scaffold Listing
 
 Documentation for each "project scaffold" can be found [here](project-scaffolds/).

@@ -1,23 +1,12 @@
-# Project Scaffold: "luke:app"
+# Project Scaffold: "luke:module"
 
 A [project scaffold](../project-scaffolds.md) that can be used to create or
 recreate a basic, minimal, project.
 
-This [project scaffold](../project-scaffolds.md) is the _default_ [sub-generator](../generators.md).
-
 ## Usage Example
 
-Explicit usage:
-
 ```
-$ yo luke:app
-```
-
-Because this is the _default_ [sub-generator](../generators.md), you can
-abbreviate its usage and can specify it, implicitly, like so:
-
-```
-$ yo luke
+$ yo luke:module
 ```
 
 ## Included Partials
@@ -27,7 +16,10 @@ The following [partials](../partials.md) are included when this
 
 * [luke:editor](../partials/editor.md)
 * [luke:git](../partials/git.md)
+* [luke:js](../partials/js.md)
 * [luke:mit-license](../partials/mit-license.md)
+* [luke:mocha](../partials/mocha.md)
+* [luke:npm](../partials/npm.md)
 * [luke:package](../partials/package.md)
 * [luke:readme](../partials/readme.md)
 * [luke:scripts](../partials/scripts.md)
@@ -35,6 +27,10 @@ The following [partials](../partials.md) are included when this
 
 _Note: Additional, unlisted, [partials](../partials.md) may be automatically
 included as [partial dependencies](../partials.md#partial-dependency)._
+
+# Project Scaffold Listing
+
+Documentation for each "project scaffold" can be found [here](project-scaffolds/).
 
 # Further Reading
 
