@@ -26,7 +26,7 @@ This [partial](../partials.md) does not depend on any others.
 
 This partial is included in the following [project scaffolds](../project-scaffolds.md):
 
-* `luke:grits` (todo)
+* [luke:grits](../project-scaffolds/grits.md)
 
 _Note: Additional, unlisted, [project scaffolds](../project-scaffolds.md) may
 automatically include this [partial](../partials.md) by way of

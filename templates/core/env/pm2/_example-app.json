@@ -1,0 +1,16 @@
+{
+	"apps" : [
+		{
+			"name"             : "example-app",
+			"script"           : "/project/something.js",
+			"args"             : [
+				"--example",
+				"--port", "123",
+				"--config", "/etc/something.conf"
+			],
+			"watch"            : false,
+			"exec_interpreter" : "node",
+			"cwd"              : "/working-dir"
+		}
+	]
+}

@@ -741,6 +741,24 @@ module.exports = yeoman.Base.extend(
 				return existing[ objectType ];
 			}
 
+		},
+
+		/**
+		 * This helper method is specific to projects that include 'luke:vagrant',
+		 * it allows a provisioning step using a slightly abbreviated syntax.
+		 *
+		 * @param scriptName The name of the script to add as a provisioning step.
+		 * @private
+		 */
+		_addVagrantStep: function( scriptName ) {
+
+			var me = this;
+			me._createSharedObject(
+				"vagrant-provision-step", scriptName, {
+					script : scriptName
+				}
+			);
+
 		}
 
 	}

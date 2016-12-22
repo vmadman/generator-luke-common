@@ -19,8 +19,8 @@ install:
  - bower install --allow-root
 
 script:
- - chmod ugo+x ./scripts/grits-render-ci.sh
- - ./scripts/grits-render-ci.sh
+ - chmod ugo+x ./scripts/grits/render/ci.sh
+ - npm run grits-render-ci
 
 after_success:
  # provider: s3

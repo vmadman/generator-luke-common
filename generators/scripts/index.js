@@ -54,8 +54,15 @@ module.exports = baseGenerator.extend(
 				_.each( me._getSharedObjects("script"), function( obj ) {
 
 					var cfg = obj.config;
+
+					/*
 					me.fs.copy(
 						me.templatePath( cfg.src ), me.destinationPath( cfg.dest )
+					);
+					*/
+
+					me.fs.copyTpl(
+						me.templatePath( cfg.src ), me.destinationPath( cfg.dest ), cfg
 					);
 
 				});

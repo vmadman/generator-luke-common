@@ -10,6 +10,7 @@ $ yo luke:mocha
 
 ## Files Created
 
+* `/scripts/test.sh` (static, [source](../../templates/core/scripts/_mocha-exec-tests.sh))
 * `/test/index.js` (static, [source](../../templates/core/test/_mocha-index.js))
 * `/test/lib/util.js` (static, [source](../../templates/core/test/lib/_util.js))
 
