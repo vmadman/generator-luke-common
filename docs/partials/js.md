@@ -1,16 +1,17 @@
-# Partial: "luke:env-dir" ([source](../../generators/env-dir/index.js))
+# Partial: "luke:js" ([source](../../generators/js/index.js))
 
-A [partial](../partials.md) that adds editor configuration meta (.editorconfig)
+A [partial](../partials.md) that adds meta files for JS development, such as
+linting configurations.
 
 ## Usage Example
 
 ```
-$ yo luke:env-dir
+$ yo luke:js
 ```
 
 ## Files Created
 
-* `/env/README.md` (static, [source](../../templates/core/env/_README.md))
+* `/.eslintrc` (static, [source](../../templates/core/_eslintrc))
 
 ## Other Operations
 
@@ -22,12 +23,15 @@ This [partial](../partials.md) does not depend on any others.
 
 ## Included In
 
-This partial is not, directly, included in any [project scaffolds](../project-scaffolds.md),
-but it may be included, indirectly, by way of [partial dependency](../partials.md#partial-dependency)._
+* [luke:module](../project-scaffolds/module.md)
+
+_Note: Additional, unlisted, [project scaffolds](../project-scaffolds.md) may
+automatically include this [partial](../partials.md) by way of
+[partial dependency](../partials.md#partial-dependency)._
 
 # Further Reading
 
-* [Source](../../generators/env-dir/index.js) - The source code for this [partial](../partials.md)
+* [Source](../../generators/js/index.js) - The source code for this [partial](../partials.md)
 * [Partial Listing](./) - Individual docs for each [partial](../partials.md)
 * [About Partials](../partials.md) - Information about partials
 * [About Project Scaffolds](../project-scaffolds.md) - Basic information about project scaffolds

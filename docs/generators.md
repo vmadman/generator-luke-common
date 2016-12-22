@@ -30,36 +30,3 @@ _Note: Yeoman does not officially recognize this project's terminology for
 # Further Reading
 
 * [Project README](../README.md) - Basic project information
-
-
----
-
-
-
-
-# Further Reading
-
-* [Project Scaffolds](project-scaffolds.md) - Sub-generators for creating/recreating full projects
-* [Partials](partials.md) - Sub-generators for creating/recreating individual project components
-
-## The Sub-Generator List
-
-### Project Scaffolds
-
-* `luke:app` *(default)* - A minimal scaffold applicable to most of my projects.
-* `luke:module` - A generic scaffold for Node.js module projects
-
-### Partials
-
-* `luke:env-dir` - Creates the `env/` directory and a few placeholder README files.
-* `luke:git` - Creates a few GIT meta files
-* `luke:js` - Adds meta files for JS development, such as linting configurations
-* `luke:mit-license` - Adds a LICENSE.md file with an MIT license
-* `luke:mocha` - Adds a basic mocha scaffold for JS unit tests
-* `luke:npm` - Adds basic NPM meta files (.npmignore and .npmrc)
-* `luke:package` - Creates a basic `package.json` file
-* `luke:readme` - Creates a basic `README.md` with a generic message/description
-* `luke:scripts` - Adds a scripts directory for `npm run` executions
-* `luke:test-dir` - Creates the fundamental directories for unit testing (`test/`)
-* `luke:vagrant` - Creates a basic Vagrant configuration w/ provisioning steps
-

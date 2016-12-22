@@ -1,16 +1,18 @@
-# Partial: "luke:env-dir" ([source](../../generators/env-dir/index.js))
+# Partial: "luke:test-dir" ([source](../../generators/test-dir/index.js))
 
-A [partial](../partials.md) that adds editor configuration meta (.editorconfig)
+A [partial](../partials.md) that creates the fundamental directories for unit
+testing (`test/`).
 
 ## Usage Example
 
 ```
-$ yo luke:env-dir
+$ yo luke:test-dir
 ```
 
 ## Files Created
 
-* `/env/README.md` (static, [source](../../templates/core/env/_README.md))
+* `/test/README.md` (static, [source](../../templates/core/test/_README.md))
+* `/test/fixtures/README.md` (static, [source](../../templates/core/test/fixtures/_README.md))
 
 ## Other Operations
 
@@ -27,7 +29,7 @@ but it may be included, indirectly, by way of [partial dependency](../partials.m
 
 # Further Reading
 
-* [Source](../../generators/env-dir/index.js) - The source code for this [partial](../partials.md)
+* [Source](../../generators/test-dir/index.js) - The source code for this [partial](../partials.md)
 * [Partial Listing](./) - Individual docs for each [partial](../partials.md)
 * [About Partials](../partials.md) - Information about partials
 * [About Project Scaffolds](../project-scaffolds.md) - Basic information about project scaffolds
