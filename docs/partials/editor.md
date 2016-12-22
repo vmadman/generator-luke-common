@@ -28,6 +28,10 @@ This partial is included in the following [project scaffolds](../project-scaffol
 * [luke:app](../project-scaffolds/app.md)
 * [luke:module](../project-scaffolds/module.md)
 
+_Note: Additional, unlisted, [project scaffolds](../project-scaffolds.md) may
+automatically include this [partial](../partials.md) by way of
+[partial dependency](../partials.md#partial-dependency)._
+
 # Further Reading
 
 * [Source](../../generators/editor/index.js) - The source code for this [partial](../partials.md)
