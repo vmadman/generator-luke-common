@@ -28,10 +28,6 @@ The following [partials](../partials.md) are included when this
 _Note: Additional, unlisted, [partials](../partials.md) may be automatically
 included as [partial dependencies](../partials.md#partial-dependency)._
 
-# Project Scaffold Listing
-
-Documentation for each "project scaffold" can be found [here](project-scaffolds/).
-
 # Further Reading
 
 * [Project Scaffold Listing](./) - Individual docs for each [project scaffold](../project-scaffolds.md)

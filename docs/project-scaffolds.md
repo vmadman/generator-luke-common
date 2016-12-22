@@ -32,6 +32,7 @@ Documentation for each "project scaffold" can be found [here](project-scaffolds/
 
 # Further Reading
 
+* [Project Scaffold Listing](project-scaffolds/) - Individual docs for each [project scaffold](../project-scaffolds.md)
 * [Sub-Generators](generators.md) - General information about generators and sub-generators
 * [Partials](partials.md) - The other type of sub-generator
 * [Project README](../README.md) - Basic project information
