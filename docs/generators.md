@@ -8,40 +8,38 @@ types of projects.  It is, therefore, subdivided into "sub-generators", with
 each one generating a specific portion of a project scaffold.
 
 When you run `yo luke`, you are, technically, running the generator.  However,
-behind the scenes, you are also running the _default_ sub-generator, which
-could also be run using `yo luke:app`.
+behind the scenes, you are also running the _default_ sub-generator ("app"),
+which could also be run using `yo luke:app`.
 
 While the default generator creates a minimal project scaffold, which is useful
 for most of my projects, there are other options available.  Some options
 produce even less than the minimal scaffold, while others create more advanced
 scaffolds for specific types of projects.
 
-One last thing before we dive into the sub-generators available.. there are two,
-fundamental, types of generators...
+## Sub-Generator Types
 
-### Project Scaffolds
+There are two fundamental types of sub-generators:
 
-These create a full project scaffold.  The default sub-generator, `luke:app`,
-creates a minimal scaffold.  The other project scaffolds create more specific
-scaffolds that include additional components (partials).
+* [Project Scaffolds](project-scaffolds.md) - Used to create a new project
+* [Partials](partials.md) - Small, composable, project parts (aka "components")
 
-### Partials
+_Note: Yeoman does not officially recognize this project's terminology for
+"project scaffolds" and "partials", they are my own terms._
 
-Partials are composable scaffold components that include a relatively small
-number of files and directories.
+# Further Reading
 
-Project scaffolds are, actually, just a particular grouping of partials.
-Depending on the project type, different partials are mixed together to form the
-final scaffold.
+* [Project README](../README.md) - Basic project information
 
-You can, also, call partials directly to create individual components, one-by-one,
-or as a means of recreating an individual part of an existing scaffold/project.
 
-Finally, some partials actually _depend_ on other partials.  For example, the
-`luke:vagrant` partial places files in the `env/` directory, which, itself, is
-created by the `luke:env-dir` partial.  Partials will automatically include any
-other partials that they need, so you may find slightly more output than
-you expect.
+
+
+
+
+
+# Further Reading
+
+* [Project Scaffolds](project-scaffolds.md) - Sub-generators for creating/recreating full projects
+* [Partials](partials.md) - Sub-generators for creating/recreating individual project components
 
 ## The Sub-Generator List
 

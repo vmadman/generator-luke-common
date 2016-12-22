@@ -1,0 +1,33 @@
+language: node_js
+node_js:
+  - "6"
+
+branches:
+  only:
+  - master
+
+notifications:
+ email:
+  on_failure: always
+
+
+before_install:
+
+install:
+ - npm install -g bower
+ - npm install
+ - bower install --allow-root
+
+script:
+ - chmod ugo+x ./scripts/grits-render-ci.sh
+ - ./scripts/grits-render-ci.sh
+
+after_success:
+ # provider: s3
+ #  access_key_id: $AWS_ACCESS_KEY_ID
+ #  secret_access_key: $AWS_SECRET_ACCESS_KEY
+ #  region: $AWS_REGION
+ #  bucket: "some-bucket"
+ #  skip_cleanup: true
+ #  local_dir: dist
+ #  acl: public_read
