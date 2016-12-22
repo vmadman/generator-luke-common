@@ -33,6 +33,7 @@ Documentation for each "partial" can be found [here](partials/).
 
 # Further Reading
 
+* [Partial Listing](partials/) - Individual docs for each partial
 * [Sub-Generators](generators.md) - General information about generators and sub-generators
 * [Project Scaffolds](project-scaffolds.md) - The other type of sub-generator
 * [Project README](../README.md) - Basic project information

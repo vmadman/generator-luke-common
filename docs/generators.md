@@ -51,8 +51,6 @@ _Note: Yeoman does not officially recognize this project's terminology for
 
 ### Partials
 
-* `luke:bower` - Creates the [Bower](https://bower.io/) meta files
-* `luke:editor` - Adds editor configuration meta (.editorconfig)
 * `luke:env-dir` - Creates the `env/` directory and a few placeholder README files.
 * `luke:git` - Creates a few GIT meta files
 * `luke:js` - Adds meta files for JS development, such as linting configurations
