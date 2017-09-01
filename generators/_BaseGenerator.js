@@ -76,6 +76,13 @@ module.exports = yeoman.Base.extend(
 					askAgain	: false
 				}, {
 					type        : "input",
+					name        : "projectVersion",
+					message     : "What is the starting version for this project?",
+					default     : "0.1.0",
+					cacheMode	: "prefer-cache",
+					askAgain	: false
+				}, {
+					type        : "input",
 					name        : "fullName",
 					message     : "What is your full name?",
 					default     : "",
@@ -100,6 +107,13 @@ module.exports = yeoman.Base.extend(
 					name        : "gitRepoName",
 					message     : "What is the name of this project's Git repository?",
 					default     : me.appname,
+					cacheMode	: "prefer-cache",
+					askAgain	: false
+				}, {
+					type        : "input",
+					name        : "copyrightHolder",
+					message     : "Who is the intellectual property rights holder for this project?",
+					default     : "",
 					cacheMode	: "prefer-cache",
 					askAgain	: false
 				}

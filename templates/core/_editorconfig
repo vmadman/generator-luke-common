@@ -1,3 +1,18 @@
+# --------------------------------------- #
+#     Luke's Universal Editor Config      #
+# - - - - - - - - - - - - - - - - - - - - #
+#  Version  : 1.1                         #
+#  Author   : Luke Chavers                #
+#  Created  : Thursday, Aug 31st, 2017    #
+#  Based On : https://editorconfig.org    #
+# - - - - - - - - - - - - - - - - - - - - #
+#     http://git.c2c.local/snippets/4     #
+# - - - - - - - - - - - - - - - - - - - - #
+#  EditorConfig helps developers define   #
+#  and maintain consistent coding styles  #
+#   between different editors and IDEs    #
+# --------------------------------------- #
+
 # -- General Settings ------------------- #
 
 root = true
@@ -13,7 +28,19 @@ charset = utf-8
 trim_trailing_whitespace = true
 insert_final_newline = true
 
+# -- YAML files ------------------------- #
+
+[*.yml]
+indent_style = space
+indent_size = 2
+
 # -- Markdown Files --------------------- #
 
 [*.md]
 trim_trailing_whitespace = false
+
+# -- Jade files  ------------------------ #
+
+[*.jade]
+indent_style = space
+indent_size = 2

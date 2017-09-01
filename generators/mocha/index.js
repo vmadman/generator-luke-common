@@ -46,8 +46,32 @@ module.exports = baseGenerator.extend(
 				me._createSharedObject(
 					"script", "test.sh", {
 						name : "test",
-						src  : "core/scripts/_mocha-exec-tests.sh",
-						dest : "scripts/test.sh"
+						src  : "core/scripts/test/_run-unit-tests.sh",
+						dest : "scripts/test/run-unit-tests.sh"
+					}
+				);
+
+				// Add Mocha as a devDependency
+				me._createSharedObject(
+					"npm-dev-dependency", "mocha", {
+						module   : "mocha",
+						version  : "^2.4.5"
+					}
+				);
+
+				// Chai is also a given ..
+				me._createSharedObject(
+					"npm-dev-dependency", "chai", {
+						module   : "chai",
+						version  : "^3.5.0"
+					}
+				);
+
+				// Tipe is also useful in unit tests ..
+				me._createSharedObject(
+					"npm-dev-dependency", "tipe", {
+						module   : "tipe",
+						version  : "^0.1.12"
 					}
 				);
 
@@ -61,6 +85,16 @@ module.exports = baseGenerator.extend(
 
 				var me = this;
 
+				// scripts/test/_test-and-wait.sh
+				me.fs.copy(
+					me.templatePath( "core/scripts/test/_test-and-wait.sh" ), me.destinationPath( "scripts/test/_test-and-wait.sh" )
+				);
+
+				// Since the unit testing setup for various projects
+				// can be radically different, I am disabling the testing
+				// scaffold, below, in favor of project-type-specific scaffolds.
+
+				/*
 				// test/index.js
 				me.fs.copy(
 					me.templatePath( "core/test/_mocha-index.js" ), me.destinationPath( "test/index.js" )
@@ -70,6 +104,7 @@ module.exports = baseGenerator.extend(
 				me.fs.copy(
 					me.templatePath( "core/test/lib/_util.js" ), me.destinationPath( "test/lib/util.js" )
 				);
+				*/
 
 			}
 
