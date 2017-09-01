@@ -27,7 +27,7 @@ module.exports = baseGenerator.extend(
 			me._showPrompts(
 
 				// Prompts from the base generator
-				[ "projectName", "projectDesc", "fullName", "emailAddress", "githubOwner", "gitRepoName" ],
+				[ "projectName", "projectDesc", "projectVersion", "fullName", "emailAddress", "githubOwner", "gitRepoName" ],
 
 				// Additional, custom, prompts
 				[],
@@ -70,12 +70,17 @@ module.exports = baseGenerator.extend(
 				// Build package.json
 				var pkg = {
 					name          : me.props.parsedProject,
-					version       : "0.1.0",
+					version       : me.props.projectVersion,
 					description   : me.props.projectDesc,
 					main          : "lib/index.js",
 					license       : licenseString,
 					repository    : "https://github.com/" + me.props.parsedGitHubOwner + "/" + me.props.parsedRepoName,
-					author        : [
+					author        : {
+						name  : me.props.fullName,
+						email : me.props.emailAddress,
+						url   : ""
+					},
+					contributors  : [
 						{
 							name  : me.props.fullName,
 							email : me.props.emailAddress,
@@ -85,8 +90,7 @@ module.exports = baseGenerator.extend(
 					publishConfig : {
 						registry : "https://registry.npmjs.org/"
 					},
-					keywords      : [
-					]
+					keywords      : []
 				};
 
 				// Check to see if this composition includes "scripts"

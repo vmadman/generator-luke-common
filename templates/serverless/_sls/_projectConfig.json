@@ -1,0 +1,115 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"version": "<%= projectVersion %>",
+		"title": "<%= gitRepoName %>",
+		"description": "<%= projectDesc %>",
+		"termsOfService": "",
+		"contact": {
+			"name": "<%= fullName %>",
+			"email": "<%= emailAddress %>",
+			"url": ""
+		},
+		"license": {
+			"name": "EULA"
+		}
+	},
+	"host": "",
+	"basePath": "/",
+	"schemes": [
+		"http"
+	],
+	"consumes": [
+		"application/vnd.api+json"
+	],
+	"produces": [
+		"application/vnd.api+json"
+	],
+	"paths": {
+
+	},
+	"definitions": {
+		"CommonResponse": {
+			"type": "object",
+			"required": [
+				"meta",
+				"jsonapi"
+			],
+			"properties": {
+				"jsonapi": {
+					"type": "object",
+					"title": "JSONAPIVersion",
+					"required": [
+						"version"
+					],
+					"properties": {
+						"version": {
+							"type": "string"
+						}
+					}
+				},
+				"meta": {
+					"type": "object",
+					"title": "MetaData",
+					"required": [
+						"requestId",
+						"seriesId"
+					],
+					"properties": {
+						"requestId": {
+							"type": "string",
+							"description": "unique UUID of current request"
+						},
+						"seriesId": {
+							"type": "string",
+							"description": "persistend UUID of initial request for all calls chain"
+						}
+					}
+				}
+			}
+		},
+		"ErrorModel": {
+			"allOf": [
+				{
+					"$ref": "#/definitions/CommonResponse"
+				},
+				{
+					"required": [
+						"errors"
+					],
+					"properties": {
+						"errors": {
+							"type": "array",
+							"items": {
+								"type": "object",
+								"required": [
+									"code",
+									"title",
+									"detail",
+									"url"
+								],
+								"properties": {
+									"code": {
+										"type": "string",
+										"description": "HTTP status code applicable to this problem"
+									},
+									"title": {
+										"type": "string",
+										"description": "short, human-readable summary of the problem"
+									},
+									"detail": {
+										"type": "string",
+										"description": "human-readable explanation specific to this occurrence of the problem"
+									},
+									"url": {
+										"type": "string"
+									}
+								}
+							}
+						}
+					}
+				}
+			]
+		}
+	}
+}

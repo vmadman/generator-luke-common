@@ -1,0 +1,64 @@
+
+iamRoleStatements:
+  -
+     Effect: Allow
+     Action: 'lambda:InvokeFunction'
+     Resource: 'arn:aws:lambda:us-east-1:<%= awsCustomerId %>:function:*'
+  -
+     Effect: Allow
+     Resource: '*'
+     Action:
+       - 'ec2:DescribeInstances'
+       - 'ec2:CreateNetworkInterface'
+       - 'ec2:DeleteNetworkInterface'
+       - 'ec2:AttachNetworkInterface'
+       - 'ec2:DescribeNetworkInterfaces'
+       - 'autoscaling:CompleteLifecycleAction'
+
+vpc:
+  securityGroupIds:
+    - <%= awsSecurityGroupId %>
+  subnetIds:
+    - <%= awsSubnetId %>
+
+request:
+  template:
+    application/vnd.api+json: |
+      {
+        "body": "$util.escapeJavaScript( $input.body )",
+        "gatewayContext": {
+          "resource": "$context.resourceId",
+          "path": "$context.resourcePath",
+          "httpMethod": "$context.httpMethod",
+          "sourceIp": "$context.identity.sourceIp",
+          "user": "$context.identity.user"
+        },
+        #set($allParams = $input.params())
+        #foreach($type in $allParams.keySet())
+        #set($params = $allParams.get($type))
+        "$type" : {
+          #foreach($paramName in $params.keySet())
+          "$paramName" : "$util.escapeJavaScript($params.get($paramName))"
+          #if($foreach.hasNext),#end
+          #end
+        }
+        #if($foreach.hasNext),#end
+        #end
+      }
+response:
+  headers:
+    X-Series-Id: integration.response.body.meta.seriesUUID
+  template: "$input.path('$.errorMessage')"
+  statusCodes:
+    200:
+      template: "$input.body"
+    400:
+      pattern: '.*\"code\":\"400\".*'
+    401:
+      pattern: '.*\"code\":\"401\".*'
+    403:
+      pattern: '.*\"code\":\"403\".*'
+    404:
+      pattern: '.*\"code\":\"404\".*'
+    500:
+      pattern: '.*\"code\":\"500\".*'

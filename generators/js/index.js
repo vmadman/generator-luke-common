@@ -23,6 +23,32 @@ module.exports = baseGenerator.extend(
 
 		},
 
+		default : {
+
+			createSharedMetaObjects: function() {
+
+				var me = this;
+
+				// You can't trust a man that doesn't lodash..
+				me._createSharedObject(
+					"npm-dependency", "lodash", {
+						module   : "lodash",
+						version  : "^4.17.4"
+					}
+				);
+
+				// .. and everyone needs a BlueBird.
+				me._createSharedObject(
+					"npm-dependency", "bluebird", {
+						module   : "bluebird",
+						version  : "^3.3.5"
+					}
+				);
+
+			}
+
+		},
+
 		writing : {
 
 			createPartialFiles : function() {
@@ -33,7 +59,12 @@ module.exports = baseGenerator.extend(
 				me.fs.copy(
 					me.templatePath( "core/_eslintrc" ), me.destinationPath( ".eslintrc" )
 				);
-				
+
+				// typedefs.js
+				me.fs.copy(
+					me.templatePath( "core/_typedefs.js" ), me.destinationPath( "typedefs.js" )
+				);
+
 			}
 		}
 

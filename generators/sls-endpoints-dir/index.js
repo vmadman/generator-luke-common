@@ -1,13 +1,14 @@
 /**
- * This is a "partial" sub-generator that generates a [basically] empty `/test`
- * directory. For the most part, this generator is used by other generators
- * (such as the mocha generator), to ensure that the `/test` directory exists.
+ * This is a "partial" sub-generator that generates a [basically] empty
+ * `/endpoints` directory. For the most part, this generator is used by other
+ * generators (such as the sls-service generator), to ensure that the
+ * `/endpoints` directory exists.
  *
  * @example
- * shell> yo luke:test-dir
+ * shell> yo luke:sls-endpoints-dir
  *
  * @author Luke Chavers <me@lukechavers.com>
- * @created 2016-12-14
+ * @created 2016-08-31
  */
 
 var yeoman = require( "yeoman-generator" );
@@ -40,20 +41,10 @@ module.exports = baseGenerator.extend(
 					return;
 				}
 
-				// test/README.md
+				// endpoints/README.md
 				me.fs.copy(
-					me.templatePath( "core/test/_README.md" ), me.destinationPath( "test/README.md" )
+					me.templatePath( "serverless/endpoints/_README.md" ), me.destinationPath( "endpoints/README.md" )
 				);
-
-				// test/lib/README.md
-				me.fs.copy(
-					me.templatePath( "core/test/lib/_README.md" ), me.destinationPath( "test/lib/README.md" )
-				);
-
-				// test/fixtures/README.md
-				/*me.fs.copy(
-					me.templatePath( "core/test/fixtures/_README.md" ), me.destinationPath( "test/fixtures/README.md" )
-				);*/
 
 			}
 

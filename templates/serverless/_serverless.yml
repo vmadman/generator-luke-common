@@ -1,0 +1,20 @@
+service: <%= gitRepoName %>
+provider:
+  name: aws
+  runtime: <%= lambdaRuntime %>
+  stage: dev
+  region: <%= awsRegion %>
+  environment: '${file(serverless.env.yml):${self:custom.stage}}'
+  iamRoleStatements: '${file(./.sls/serverless.common.yml):iamRoleStatements}'
+plugins:
+  - serverless-offline
+  - '@c2cs/serverless-apigateway-plugin'
+  - '@c2cs/serverless-subscription-plugin'
+custom:
+  stage: '${opt:stage, self:provider.stage}'
+  subscription-pattern-default: '*'
+  subscription-target-default: 'arn:aws:kinesis:us-east-1:<%= awsCustomerId %>:stream/CloudWatchLogsToSqs01'
+  subscription-target-type: direct
+  subscription-source-default: all
+  subscription-default-role: 'arn:aws:iam::<%= awsCustomerId %>:role/CWLtoKinesisRole'
+functions:

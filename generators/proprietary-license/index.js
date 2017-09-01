@@ -1,12 +1,11 @@
 /**
- * This is a "partial" sub-generator that generates a very basic and generic
- * `README.md` file for the project.
+ * This is a "partial" sub-generator that attaches a proprietary license.
  *
  * @example
- * shell> yo luke:readme
+ * shell> yo luke:proprietary-license
  *
  * @author Luke Chavers <me@lukechavers.com>
- * @created 2016-12-14
+ * @created 2017-08-31
  */
 
 var yeoman = require( "yeoman-generator" );
@@ -14,6 +13,7 @@ var baseGenerator = require("../_BaseGenerator");
 
 module.exports = baseGenerator.extend(
 	{
+
 		prompting : function() {
 
 			// Locals
@@ -26,7 +26,7 @@ module.exports = baseGenerator.extend(
 			me._showPrompts(
 
 				// Prompts from the base generator
-				[ "projectName", "projectDesc" ],
+				["copyrightHolder"],
 
 				// Additional, custom, prompts
 				[],
@@ -43,11 +43,12 @@ module.exports = baseGenerator.extend(
 			createPartialFiles : function() {
 
 				var me = this;
-				// README.md
+
+				// LICENSE.MD
 				me.fs.copyTpl(
-					me.templatePath( "core/_README.md" ), me.destinationPath( "README.md" ), {
-						name : me.props.projectName,
-						desc : me.props.projectDesc
+					me.templatePath( "core/_PROPRIETARY-LICENSE.md" ), me.destinationPath( "LICENSE.md" ), {
+						year   : new Date().getFullYear(),
+						owner  : me.props.copyrightHolder
 					}
 				);
 
