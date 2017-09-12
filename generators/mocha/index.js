@@ -75,6 +75,14 @@ module.exports = baseGenerator.extend(
 					}
 				);
 
+				// Eyes is great for object inspection..
+				me._createSharedObject(
+					"npm-dev-dependency", "eyes", {
+						module   : "eyes",
+						version  : "^0.1.8"
+					}
+				);
+
 			}
 
 		},
