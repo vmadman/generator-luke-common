@@ -1,13 +1,11 @@
 # ------------------------------------------------------------------------- #
-#     C2C's Universal Git Attributes                                        #
+#     Luke's Universal Git Attributes                                       #
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - #
-#  Version  : 1.3                                                           #
+#  Version  : 1.3.2                                                         #
 #  Author   : Luke Chavers                                                  #
 #  Created  : Monday, Jan 26th, 2015                                        #
 #  Updated  : Thursday, Aug 31st, 2017                                      #
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - #
-#     https://gist.github.com/vmadman/07ec686ab53a1378729275a0b42f6ee5      #
-# ------------------------------------------------------------------------- #
 
 * text=auto
 *.sh text eol=lf
