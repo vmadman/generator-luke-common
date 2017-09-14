@@ -4,7 +4,7 @@
 
 [![Travis](https://img.shields.io/travis/vmadman/generator-luke-common.svg)](https://travis-ci.org/vmadman/generator-luke-common)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://raw.githubusercontent.com/vmadman/generator-luke-common/master/LICENSE.md)
-[![NPM](https://img.shields.io/npm/v/generator-luke.svg)](https://www.npmjs.com/package/generator-luke)
+[![NPM](https://img.shields.io/npm/v/@lukechavers/generator-luke.svg)](https://www.npmjs.com/package/@lukechavers/generator-luke)
 [![GitHub watchers](https://img.shields.io/github/watchers/vmadman/generator-luke-common.svg?style=social&label=Watch)](https://github.com/vmadman/generator-luke-common)
 
 
@@ -40,5 +40,4 @@ $ npm install -g yo generator-luke
 
 * [GitHub Project Page](https://github.com/vmadman/generator-luke-common)
 * [Travis-CI Project Page](https://travis-ci.org/vmadman/generator-luke-common)
-* [NPM Package](https://www.npmjs.com/package/generator-luke)
-
+* [NPM Package](https://www.npmjs.com/package/@lukechavers/generator-luke)

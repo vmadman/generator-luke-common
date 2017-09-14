@@ -1,6 +1,6 @@
 {
   "name": "@lukechavers/generator-luke",
-  "version": "5.0.2",
+  "version": "5.0.3",
   "description": "Luke's Yeoman Generator",
   "license": "MIT",
   "repository": "https://github.com/vmadman/generator-luke-common",
