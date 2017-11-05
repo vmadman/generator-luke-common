@@ -1,8 +1,10 @@
 /**
- * This is a "partial" sub-generator that attaches a proprietary license.
+ * Attaches a proprietary (non-open-source) license.
  *
+ * @partial
+ * @promptsFor copyrightHolder
  * @example
- * shell> yo luke:proprietary-license
+ * $ yo luke:proprietary-license
  *
  * @author Luke Chavers <me@lukechavers.com>
  * @created 2017-08-31
@@ -44,7 +46,7 @@ module.exports = baseGenerator.extend(
 
 				var me = this;
 
-				// LICENSE.MD
+				/** @creates static:core/_PROPRIETARY-LICENSE.md->LICENSE.md **/
 				me.fs.copyTpl(
 					me.templatePath( "core/_PROPRIETARY-LICENSE.md" ), me.destinationPath( "LICENSE.md" ), {
 						year   : new Date().getFullYear(),

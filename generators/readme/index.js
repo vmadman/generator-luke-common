@@ -1,9 +1,10 @@
 /**
- * This is a "partial" sub-generator that generates a very basic and generic
- * `README.md` file for the project.
+ * A partial that creates a basic `README.md` with a generic message/description.
  *
+ * @partial
+ * @promptsFor projectName, projectDesc
  * @example
- * shell> yo luke:readme
+ * $ yo luke:readme
  *
  * @author Luke Chavers <me@lukechavers.com>
  * @created 2016-12-14
@@ -43,7 +44,8 @@ module.exports = baseGenerator.extend(
 			createPartialFiles : function() {
 
 				var me = this;
-				// README.md
+
+				/** @creates template:core/_README.md->README.md **/
 				me.fs.copyTpl(
 					me.templatePath( "core/_README.md" ), me.destinationPath( "README.md" ), {
 						name : me.props.projectName,

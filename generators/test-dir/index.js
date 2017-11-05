@@ -1,10 +1,11 @@
 /**
- * This is a "partial" sub-generator that generates a [basically] empty `/test`
- * directory. For the most part, this generator is used by other generators
- * (such as the mocha generator), to ensure that the `/test` directory exists.
+ * Generates a [basically] empty `/test` directory.
+ * For the most part, this generator is used by other generators (such as the
+ * mocha generator), to ensure that the `/test` directory exists.
  *
+ * @partial
  * @example
- * shell> yo luke:test-dir
+ * $ yo luke:test-dir
  *
  * @author Luke Chavers <me@lukechavers.com>
  * @created 2016-12-14
@@ -40,12 +41,12 @@ module.exports = baseGenerator.extend(
 					return;
 				}
 
-				// test/README.md
+				/** @creates static:core/test/_README.md->test/README.md **/
 				me.fs.copy(
 					me.templatePath( "core/test/_README.md" ), me.destinationPath( "test/README.md" )
 				);
 
-				// test/lib/README.md
+				/** @creates static:core/test/lib/_README.md->test/lib/README.md **/
 				me.fs.copy(
 					me.templatePath( "core/test/lib/_README.md" ), me.destinationPath( "test/lib/README.md" )
 				);

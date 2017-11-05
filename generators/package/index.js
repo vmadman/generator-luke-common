@@ -2,8 +2,11 @@
  * This is a "partial" sub-generator that generates a very basic and generic
  * `package.json` file for the project.
  *
+ * @partial
+ * @promptsFor projectName, projectDesc, projectVersion, fullName
+ * @promptsFor emailAddress, githubOwner, gitRepoName
  * @example
- * shell> yo luke:package
+ * $ yo luke:package
  *
  * @author Luke Chavers <me@lukechavers.com>
  * @created 2016-12-14
@@ -132,7 +135,7 @@ module.exports = baseGenerator.extend(
 
 				});
 
-				// Write package.json
+				/** @creates generated:package.json **/
 				me.fs.writeJSON( me.destinationPath( "package.json" ), pkg, null, "\t" );
 
 			}

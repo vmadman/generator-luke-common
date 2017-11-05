@@ -2,8 +2,10 @@
  * This is a "partial" sub-generator that generates a very minimal skeleton
  * for unit testing via Mocha and Chai.
  *
+ * @partial
+ * @uses test-dir
  * @example
- * shell> yo luke:mocha
+ * $ yo luke:mocha
  *
  * @author Luke Chavers <me@lukechavers.com>
  * @created 2016-12-14
@@ -93,7 +95,7 @@ module.exports = baseGenerator.extend(
 
 				var me = this;
 
-				// scripts/test/_test-and-wait.sh
+				/** @creates static:core/scripts/test/_test-and-wait.sh->scripts/test/_test-and-wait.sh **/
 				me.fs.copy(
 					me.templatePath( "core/scripts/test/_test-and-wait.sh" ), me.destinationPath( "scripts/test/_test-and-wait.sh" )
 				);

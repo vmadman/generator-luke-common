@@ -1,9 +1,12 @@
 /**
- * This is a "partial" sub-generator that generates the basic Serverless
- * Framework configuration files.
+ * Generates the basic Serverless Framework configuration files.
  *
+ * @partial
+ * @promptsFor copyrightHolder, projectDesc, fullName, emailAddress
+ * @promptsFor gitRepoName, projectVersion, awsCustomerId, awsSecurityGroupId
+ * @promptsFor awsSubnetId, awsRegion, lambdaRuntime
  * @example
- * shell> yo luke:sls-config
+ * $ yo luke:sls-config
  *
  * @author Luke Chavers <me@lukechavers.com>
  * @created 2016-08-31
@@ -91,14 +94,14 @@ module.exports = baseGenerator.extend(
 
 				var me = this;
 
-				// serverless.env.yml
+				/** @creates template:serverless/_serverless.env.yml->serverless.env.yml **/
 				me.fs.copyTpl(
 					me.templatePath( "serverless/_serverless.env.yml" ), me.destinationPath( "serverless.env.yml" ), {
 						"gitRepoName": me.props.gitRepoName
 					}
 				);
 
-				// serverless.yml
+				/** @creates template:serverless/_serverless.yml->serverless.yml **/
 				me.fs.copyTpl(
 					me.templatePath( "serverless/_serverless.yml" ), me.destinationPath( "serverless.yml" ), {
 						"gitRepoName": me.props.gitRepoName,
@@ -108,12 +111,12 @@ module.exports = baseGenerator.extend(
 					}
 				);
 
-				// .sls/README.md
+				/** @creates static:serverless/_sls/_README.md->.sls/README.md **/
 				me.fs.copy(
 					me.templatePath( "serverless/_sls/_README.md" ), me.destinationPath( ".sls/README.md" )
 				);
 
-				// .sls/projectConfig.json
+				/** @creates template:serverless/_sls/_projectConfig.json->.sls/projectConfig.json **/
 				me.fs.copyTpl(
 					me.templatePath( "serverless/_sls/_projectConfig.json" ), me.destinationPath( ".sls/projectConfig.json" ), {
 						"projectVersion": me.props.projectVersion,
@@ -124,7 +127,7 @@ module.exports = baseGenerator.extend(
 					}
 				);
 
-				// .sls/projectConfig.yml
+				/** @creates template:serverless/_sls/_projectConfig.yml->.sls/projectConfig.yml **/
 				me.fs.copyTpl(
 					me.templatePath( "serverless/_sls/_projectConfig.yml" ), me.destinationPath( ".sls/projectConfig.yml" ), {
 						"projectVersion": me.props.projectVersion,
@@ -135,7 +138,7 @@ module.exports = baseGenerator.extend(
 					}
 				);
 
-				// .sls/projectConfig.yml
+				/** @creates template:serverless/_sls/_serverless.common.yml->.sls/serverless.common.yml **/
 				me.fs.copyTpl(
 					me.templatePath( "serverless/_sls/_serverless.common.yml" ), me.destinationPath( ".sls/serverless.common.yml" ), {
 						"awsCustomerId": me.props.awsCustomerId,

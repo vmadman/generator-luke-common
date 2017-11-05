@@ -1,11 +1,11 @@
 /**
- * This is a "partial" sub-generator that generates a [basically] empty
- * `/endpoints` directory. For the most part, this generator is used by other
- * generators (such as the sls-service generator), to ensure that the
- * `/endpoints` directory exists.
+ * Generates a [basically] empty`/endpoints` directory.
+ * For the most part, this generator is used by other generators (such as the
+ * sls-service generator), to ensure that the `/endpoints` directory exists.
  *
+ * @partial
  * @example
- * shell> yo luke:sls-endpoints-dir
+ * $ yo luke:sls-endpoints-dir
  *
  * @author Luke Chavers <me@lukechavers.com>
  * @created 2016-08-31
@@ -41,7 +41,7 @@ module.exports = baseGenerator.extend(
 					return;
 				}
 
-				// endpoints/README.md
+				/** @creates static:serverless/endpoints/_README.md->endpoints/README.md **/
 				me.fs.copy(
 					me.templatePath( "serverless/endpoints/_README.md" ), me.destinationPath( "endpoints/README.md" )
 				);

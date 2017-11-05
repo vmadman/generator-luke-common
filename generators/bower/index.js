@@ -1,8 +1,10 @@
 /**
- * This is a "partial" sub-generator that adds Bower configurations to a project.
+ * Adds Bower configurations to a project.
  *
+ * @partial
+ * @promptsFor projectName, fullName, emailAddress, bowerComponentsPath
  * @example
- * shell> yo luke:bower
+ * $ yo luke:bower
  *
  * @author Luke Chavers <me@lukechavers.com>
  * @created 2016-12-14
@@ -78,7 +80,7 @@ module.exports = baseGenerator.extend(
 				bowerDir = bowerDir.replace( /\\/g, "/");
 				bowerDir = bowerDir.replace( /\/+/g, "/");
 
-				// bower.json
+				/** @creates template:core/_bower.json->bower.json **/
 				me.fs.copyTpl(
 					me.templatePath( "core/_bower.json" ), me.destinationPath( "bower.json" ), {
 						name   : me.props.parsedProject,
@@ -87,14 +89,14 @@ module.exports = baseGenerator.extend(
 					}
 				);
 
-				// .bowerrc
+				/** @creates template:core/_bowerrc.json->.bowerrc **/
 				me.fs.copyTpl(
 					me.templatePath( "core/_bowerrc.json" ), me.destinationPath( ".bowerrc" ), {
 						path   : bowerDir
 					}
 				);
 
-				// README.md
+				/** @creates template:core/_bower-readme.md->{bowerComponentsPath}/README.md **/
 				me.fs.copy(
 					me.templatePath( "core/_bower-readme.md" ), me.destinationPath( bowerDir + "/README.md" )
 				);

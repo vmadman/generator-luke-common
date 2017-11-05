@@ -1,9 +1,9 @@
 /**
- * This is a "partial" sub-generator that provides an editor
- * configuration (.editorconfig).
+ * Adds configuration files for IDEs and editors.
  *
+ * @partial
  * @example
- * shell> yo luke:editor
+ * $ yo luke:editor
  *
  * @author Luke Chavers <me@lukechavers.com>
  * @created 2016-12-14
@@ -30,7 +30,7 @@ module.exports = baseGenerator.extend(
 
 				var me = this;
 
-				// .editorconfig
+				/** @creates static:core/_editorconfig->.editorconfig **/
 				me.fs.copy(
 					me.templatePath( "core/_editorconfig" ), me.destinationPath( ".editorconfig" )
 				);

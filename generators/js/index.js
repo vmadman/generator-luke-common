@@ -1,8 +1,9 @@
 /**
  * This is a "partial" sub-generator that generates standard JS meta files.
  *
+ * @partial
  * @example
- * shell> yo luke:js
+ * $ yo luke:js
  *
  * @author Luke Chavers <me@lukechavers.com>
  * @created 2016-12-14
@@ -55,12 +56,12 @@ module.exports = baseGenerator.extend(
 
 				var me = this;
 
-				// .eslintrc
+				/** @creates static:core/_eslintrc->.eslintrc **/
 				me.fs.copy(
 					me.templatePath( "core/_eslintrc" ), me.destinationPath( ".eslintrc" )
 				);
 
-				// typedefs.js
+				/** @creates static:core/_typedefs.js->typedefs.js **/
 				me.fs.copy(
 					me.templatePath( "core/_typedefs.js" ), me.destinationPath( "typedefs.js" )
 				);

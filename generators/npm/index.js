@@ -1,8 +1,9 @@
 /**
  * This is a "partial" sub-generator that generates a few standard NPM meta files.
  *
+ * @partial
  * @example
- * shell> yo luke:npm
+ * $ yo luke:npm
  *
  * @author Luke Chavers <me@lukechavers.com>
  * @created 2016-12-14
@@ -46,12 +47,12 @@ module.exports = baseGenerator.extend(
 
 				var me = this;
 
-				// .npmrc
+				/** @creates static:core/_npmrc->.npmrc **/
 				me.fs.copy(
 					me.templatePath( "core/_npmrc" ), me.destinationPath( ".npmrc" )
 				);
 
-				// .npmignore
+				/** @creates static:core/_npmignore->.npmignore **/
 				me.fs.copy(
 					me.templatePath( "core/_npmignore" ), me.destinationPath( ".npmignore" )
 				);

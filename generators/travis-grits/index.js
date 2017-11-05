@@ -1,9 +1,10 @@
 /**
- * This is a "partial" sub-generator that generates a `.travis.yml` file
- * with common options for Grits.js deployment.
+ * Generates a `.travis.yml` file with common options for Grits.js deployment.
  *
+ * @partial
+ * @uses package, grits-scripts
  * @example
- * shell> yo luke:travis-grits
+ * $ yo luke:travis-grits
  *
  * @author Luke Chavers <me@lukechavers.com>
  * @created 2016-12-22
@@ -53,13 +54,13 @@ module.exports = baseGenerator.extend(
 
 				var me = this;
 
-				// _vars.sh
+				/** @creates static:grits/scripts/grits/_vars.sh->scripts/grits/_vars.sh **/
 				// todo: move this to its own partial
 				me.fs.copy(
 					me.templatePath( "grits/scripts/grits/_vars.sh" ), me.destinationPath( "scripts/grits/_vars.sh" )
 				);
 
-				// .travis.yml
+				/** @creates static:grits/_travis.yml->.travis.yml **/
 				me.fs.copy(
 					me.templatePath( "grits/_travis.yml" ), me.destinationPath( ".travis.yml" )
 				);

@@ -2,9 +2,16 @@
  * This is a "project scaffold" sub-generator that generates a project scaffold
  * for a Serverless service (c2c style).
  *
+ * @scaffold
  * @example
- * shell> yo luke:sls-service
+ * $ npm install -g yo generator-luke
+ * $ mkdir my-project
+ * $ cd my-project
+ * $ yo luke:sls-service
  *
+ * @uses package, sls-config, sls-endpoints-dir, sls-deps
+ * @uses proprietary-license, readme, js, editor, git
+ * @uses sls-tests, scripts
  * @author Luke Chavers <me@lukechavers.com>
  * @created 2017-08-31
  */

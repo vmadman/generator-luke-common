@@ -2,9 +2,15 @@
  * This is a "project scaffold" sub-generator that generates a project scaffold
  * for a basic Node.js module project.
  *
+ * @scaffold
  * @example
- * shell> yo luke:module
+ * $ npm install -g yo generator-luke
+ * $ mkdir my-project
+ * $ cd my-project
+ * $ yo luke:module
  *
+ * @uses package, mit-license, readme, js, editor, npm
+ * @uses git, vagrant, mocha, scripts
  * @author Luke Chavers <me@lukechavers.com>
  * @created 2016-12-14
  */

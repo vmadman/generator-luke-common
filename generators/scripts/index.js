@@ -1,8 +1,9 @@
 /**
- * This is a "partial" sub-generator that generates the /scripts directory.
+ * Generates the /scripts directory.
  *
+ * @partial
  * @example
- * shell> yo luke:scripts
+ * $ yo luke:scripts
  *
  * @author Luke Chavers <me@lukechavers.com>
  * @created 2016-12-14
@@ -30,7 +31,7 @@ module.exports = baseGenerator.extend(
 
 				var me = this;
 
-				// scripts/README.md
+				/** @creates static:core/scripts/_README.md->scripts/README.md **/
 				me.fs.copy(
 					me.templatePath( "core/scripts/_README.md" ), me.destinationPath( "scripts/README.md" )
 				);
@@ -61,6 +62,7 @@ module.exports = baseGenerator.extend(
 					);
 					*/
 
+					/** @creates generated:scripts/{script} **/
 					me.fs.copyTpl(
 						me.templatePath( cfg.src ), me.destinationPath( cfg.dest ), cfg
 					);

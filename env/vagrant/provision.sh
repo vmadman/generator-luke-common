@@ -22,17 +22,72 @@ source "$PROVISION_SCRIPT_ROOT/github-exec.sh"
 exec_github_script "yum-update-cache"
 exec_github_script "yum-install-common"
 exec_github_script "yum-install-git"
+
+# Node.js
 exec_github_script "yum-install-node-js"
-exec_github_script "npm-install-yeoman"
-exec_github_script "npm-create-global-link"
+exec_github_script "create-npm-run-shortcut"
+
+# Travis CLI
 exec_github_script "gem-install-travis-cli"
 
-#exec_github_script "npm-install-pm2"
-#exec_github_script "npm-install-livereloadx"
-#exec_github_script "npm-install-grunt-cli"
-#exec_github_script "npm-create-dep-symlink"
-#exec_github_script "npm-install-deps"
-#exec_github_script "gem-install-travis-cli"
+# Yeoman
+exec_github_script "npm-install-yeoman"
+
+# Project Dependencies
+exec_github_script "npm-install-deps-fresh"
+exec_github_script "npm-create-global-link"
 
 # Project Specific Scripts
 #"$PROVISION_SCRIPT_ROOT/do-something.sh"
+
+
+
+
+
+
+
+
+
+
+# -- legacy --
+
+
+
+
+
+# Might be useful again one day...
+#exec_github_script "npm-install-pm2"
+#exec_github_script "npm-install-livereloadx"
+#exec_github_script "npm-install-grunt-cli"
+
+
+# ------------
+
+# Yarn doesn't seem to work properly; generator-luke is not able to "link" ..
+
+# -
+
+# [vagrant@generator-luke tmp]$ yo luke
+# Error luke
+#
+# You don't seem to have a generator with the name “luke” installed.
+# But help is on the way:
+#
+# You can see available generators via npm search yeoman-generator or via http://yeoman.io/generators/.
+# Install them with npm install generator-luke.
+#
+# To see all your installed generators run yo without any arguments. Adding the --help option will also show subgenerators.
+#
+# If yo cannot find the generator, run yo doctor to troubleshoot your system.
+
+# -
+
+# Yarn
+#exec_github_script "yum-install-yarn"
+
+# Yeoman
+#exec_github_script "yarn-install-yeoman"
+
+# Project Dependencies
+#exec_github_script "yarn-install-deps-fresh"
+#exec_github_script "yarn-create-global-link"

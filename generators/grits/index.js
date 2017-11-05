@@ -2,9 +2,15 @@
  * This is a "project scaffold" sub-generator that generates a project scaffold
  * for a Grits.js website.
  *
+ * @scaffold
  * @example
- * shell> yo luke:grits
+ * $ npm install -g yo generator-luke
+ * $ mkdir my-project
+ * $ cd my-project
+ * $ yo luke:grits
  *
+ * @uses package, mit-license, readme, js, editor, npm
+ * @uses vagrant, mocha, scripts, bower, travis-grits
  * @author Luke Chavers <me@lukechavers.com>
  * @created 2016-12-22
  */

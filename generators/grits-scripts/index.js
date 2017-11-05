@@ -1,9 +1,10 @@
 /**
- * This is a "partial" sub-generator that sets up the basic npm run scripts
- * for Grits.js projects.
+ * Sets up the basic npm run scripts for Grits.js projects.
  *
+ * @partial
+ * @uses pm2, scripts
  * @example
- * shell> yo luke:grits-scripts
+ * $ yo luke:grits-scripts
  *
  * @author Luke Chavers <me@lukechavers.com>
  * @created 2016-12-22
@@ -34,6 +35,7 @@ module.exports = baseGenerator.extend(
 				var me = this;
 
 				// Add an npm script for running grits on travis
+				// todo: is this complete?
 				me._createSharedObject(
 					"script", "grits/xx/xx.sh", {
 						name : "grits-xx",
@@ -52,7 +54,7 @@ module.exports = baseGenerator.extend(
 
 				var me = this;
 
-				// _vars.sh
+				/** @creates static:grits/scripts/grits/_vars.sh->scripts/grits/_vars.sh **/
 				me.fs.copy(
 					me.templatePath( "grits/scripts/grits/_vars.sh" ), me.destinationPath( "scripts/grits/_vars.sh" )
 				);

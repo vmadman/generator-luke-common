@@ -1,8 +1,10 @@
 /**
- * This is a "partial" sub-generator that adds PM2 to the project.
+ * Adds PM2 to the project.
  *
+ * @partial
+ * @uses luke:scripts
  * @example
- * shell> yo luke:pm2
+ * $ yo luke:pm2
  *
  * @author Luke Chavers <me@lukechavers.com>
  * @created 2016-12-22
@@ -45,7 +47,7 @@ module.exports = baseGenerator.extend(
 
 				var me = this;
 
-				// example-app.json
+				/** @creates static:core/env/pm2/_example-app.json->env/pm2/example-app.json **/
 				me.fs.copy(
 					me.templatePath( "core/env/pm2/_example-app.json" ), me.destinationPath( "env/pm2/example-app.json" )
 				);

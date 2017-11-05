@@ -1,8 +1,9 @@
 /**
- * This is a "partial" sub-generator that generates a few standard GIT meta files.
+ * Generates a few standard GIT meta files.
  *
+ * @partial
  * @example
- * shell> yo luke:git
+ * $ yo luke:git
  *
  * @author Luke Chavers <me@lukechavers.com>
  * @created 2016-12-14
@@ -29,16 +30,15 @@ module.exports = baseGenerator.extend(
 
 				var me = this;
 
-				// .gitignore
+				/** @creates static:core/_gitignore->.gitignore **/
 				me.fs.copy(
 					me.templatePath( "core/_gitignore" ), me.destinationPath( ".gitignore" )
 				);
 
-				// .gitattributes
+				/** @creates static:core/_gitattributes->.gitattributes **/
 				me.fs.copy(
 					me.templatePath( "core/_gitattributes" ), me.destinationPath( ".gitattributes" )
 				);
-
 
 			}
 

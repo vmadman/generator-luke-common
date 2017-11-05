@@ -4,12 +4,14 @@
  * This scaffold/generator is also the default generator and will execute if
  * no sub-generator is specified.
  *
+ * @scaffold
  * @example
- * shell> npm install -g yo generator-luke
- * shell> mkdir my-project
- * shell> cd my-project
- * shell> yo luke
+ * $ npm install -g yo generator-luke
+ * $ mkdir my-project
+ * $ cd my-project
+ * $ yo luke
  *
+ * @uses package, mit-license, readme, git
  * @author Luke Chavers <me@lukechavers.com>
  * @created 2016-12-14
  */
@@ -28,8 +30,12 @@ module.exports = yeoman.Base.extend({
 		me.composeWith("luke:mit-license");
 		me.composeWith("luke:readme");
 		me.composeWith("luke:git");
+
+		/** @uses editor,scripts **/
 		me.composeWith("luke:editor");
 		me.composeWith("luke:scripts");
+
+		/** @uses vagrant **/
 		me.composeWith("luke:vagrant");
 
 	},

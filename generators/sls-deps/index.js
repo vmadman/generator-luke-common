@@ -1,9 +1,9 @@
 /**
- * This is a "partial" sub-generator that adds the basic dependencies needed
- * to create basic Serverless services.
+ * Adds the basic NPM dependencies needed to create basic Serverless services.
  *
+ * @partial
  * @example
- * shell> yo luke:sls-deps
+ * $ yo luke:sls-deps
  *
  * @author Luke Chavers <me@lukechavers.com>
  * @created 2017-08-31
@@ -63,7 +63,6 @@ module.exports = baseGenerator.extend(
 						version  : "^0.2.1"
 					}
 				);
-
 
 			}
 

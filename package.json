@@ -1,6 +1,6 @@
 {
   "name": "@lukechavers/generator-luke",
-  "version": "5.0.4",
+  "version": "5.0.5",
   "description": "Luke's Yeoman Generator",
   "license": "MIT",
   "repository": "https://github.com/vmadman/generator-luke-common",
@@ -9,7 +9,9 @@
     "email": "luke@c2cschools.com",
     "url": "http://git.c2c.local/u/luke"
   },
-  "scripts": {},
+  "scripts": {
+    "docs": "./scripts/docs/build-generator-docs.js"
+  },
   "files": [
     "generators",
     "templates",
@@ -23,5 +25,10 @@
     "lodash": "^4.17.2",
     "yeoman-generator": "^0.24.1",
     "yosay": "^1.2.1"
+  },
+  "devDependencies": {
+    "dox": "^0.9.0",
+    "fs-extra-promise": "^1.0.1",
+    "klaw": "^2.1.0"
   }
 }

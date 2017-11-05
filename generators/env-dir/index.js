@@ -1,10 +1,11 @@
 /**
- * This is a "partial" sub-generator that generates a blank `/env` directory.
+ * Generates a blank `/env` directory.
  * For the most part, this generator is used by other generators (such as the
  * vagrant generator), to ensure that the `/env` directory exists.
  *
+ * @partial
  * @example
- * shell> yo luke:env-dir
+ * $ yo luke:env-dir
  *
  * @author Luke Chavers <me@lukechavers.com>
  * @created 2016-12-14
@@ -40,7 +41,7 @@ module.exports = baseGenerator.extend(
 					return;
 				}
 
-				// env/README.md
+				/** @creates static:core/env/_README.md->env/README.md **/
 				me.fs.copy(
 					me.templatePath( "core/env/_README.md" ), me.destinationPath( "env/README.md" )
 				);

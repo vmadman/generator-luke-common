@@ -1,9 +1,11 @@
 /**
- * This is a "partial" sub-generator that provides some basic testing
- * presets and libraries for unit testing Serverless endpoints.
+ * Provides some basic testing presets and libraries for unit testing Serverless
+ * endpoints.
  *
+ * @partial
+ * @uses mocha
  * @example
- * shell> yo luke:sls-tests
+ * $ yo luke:sls-tests
  *
  * @author Luke Chavers <me@lukechavers.com>
  * @created 2017-08-31
@@ -52,7 +54,7 @@ module.exports = baseGenerator.extend(
 
 				var me = this;
 
-				// test/lib/util.js
+				/** @creates static:serverless/test/lib/_util.js->test/lib/util.js **/
 				me.fs.copy(
 					me.templatePath( "serverless/test/lib/_util.js" ), me.destinationPath( "test/lib/util.js" )
 				);

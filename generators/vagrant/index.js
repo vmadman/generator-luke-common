@@ -1,9 +1,10 @@
 /**
- * This is a "partial" sub-generator that generates a very basic Vagrantfile
- * and provision configuration for the project.
+ * Generates a very basic `Vagrantfile` and provision configuration for the project.
  *
+ * @partial
+ * @promptsFor projectName, vagrantPortStart, vagrantPortCount
  * @example
- * shell> yo luke:vagrant
+ * $ yo luke:vagrant
  *
  * @author Luke Chavers <me@lukechavers.com>
  * @created 2016-12-14
@@ -128,6 +129,11 @@ module.exports = baseGenerator.extend(
 
 				// Static Files ------------------------------------------------
 
+				/** @creates static:core/env/vagrant/_always.sh->env/vagrant/always.sh **/
+				/** @creates static:core/env/vagrant/_github-exec.sh->env/vagrant/github-exec.sh **/
+				/** @creates static:core/env/vagrant/_README.md->env/vagrant/README.md **/
+				/** @creates static:core/env/vagrant/_tmp.sh->env/vagrant/tmp.sh **/
+
 				var staticFilenames = [
 					"always.sh", "github-exec.sh",
 					"README.md", "tmp.sh"
@@ -142,7 +148,7 @@ module.exports = baseGenerator.extend(
 
 				});
 
-				// The 'project' directory ..
+				/** @creates static:core/env/vagrant/project/_README.md->env/vagrant/project/README.md **/
 				me.fs.copy(
 					me.templatePath( "core/env/vagrant/project/_README.md" ), me.destinationPath( "env/vagrant/project/README.md" )
 				);
@@ -150,7 +156,7 @@ module.exports = baseGenerator.extend(
 
 				// Dynamic Files -----------------------------------------------
 
-				// Vagrantfile
+				/** @creates template:core/_Vagrantfile->Vagrantfile **/
 				me.fs.copyTpl(
 					me.templatePath( "core/_Vagrantfile" ), me.destinationPath( "Vagrantfile" ), {
 						name : me.props.parsedProject,
@@ -158,7 +164,7 @@ module.exports = baseGenerator.extend(
 					}
 				);
 
-				// provision.sh
+				/** @creates template:core/env/vagrant/_provision.sh->env/vagrant/provision.sh **/
 				me.fs.copyTpl(
 					me.templatePath( "core/env/vagrant/_provision.sh" ), me.destinationPath( "env/vagrant/provision.sh" ), {
 						steps: me._getProvisioningSteps()
