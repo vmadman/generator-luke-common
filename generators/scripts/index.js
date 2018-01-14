@@ -1,6 +1,7 @@
 /**
  * Generates the /scripts directory.
  *
+ * @operation Dynamically copies scripts that are specified by other partials.
  * @partial
  * @example
  * $ yo luke:scripts

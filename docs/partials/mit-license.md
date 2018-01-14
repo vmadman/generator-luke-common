@@ -1,6 +1,6 @@
 # Partial: "luke:mit-license" ([source](../../generators/mit-license/index.js))
 
-A [partial](../partials.md) that adds a LICENSE.md file with an MIT license.
+This is a "partial" sub-generator that attaches a standard MIT license.
 
 ## Usage Example
 
@@ -8,26 +8,24 @@ A [partial](../partials.md) that adds a LICENSE.md file with an MIT license.
 $ yo luke:mit-license
 ```
 
+
 ## Files Created
 
-* `/LICENSE.md` (dynamic, [template](../../templates/core/_MIT-LICENSE.md))
+* `LICENSE.md` (template, [source](../../core/_MIT-LICENSE.md))
 
-## Other Operations
 
-This [partial](../partials.md) only creates files and/or directories.
+## Dependents
 
-## Dependencies
+This [partial](../partials.md) is included by the following:
 
-This [partial](../partials.md) does not depend on any others.
-
-## Included In
-
-* [luke:app](../project-scaffolds/app.md)
-* [luke:module](../project-scaffolds/module.md)
+* [luke:app](../project-scaffolds/app.md) ([project scaffold](../project-scaffolds.md))
+* [luke:grits](../project-scaffolds/grits.md) ([project scaffold](../project-scaffolds.md))
+* [luke:module](../project-scaffolds/module.md) ([project scaffold](../project-scaffolds.md))
 
 _Note: Additional, unlisted, [project scaffolds](../project-scaffolds.md) may
 automatically include this [partial](../partials.md) by way of
 [partial dependency](../partials.md#partial-dependency)._
+
 
 # Further Reading
 

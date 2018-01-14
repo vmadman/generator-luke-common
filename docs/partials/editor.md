@@ -1,7 +1,6 @@
 # Partial: "luke:editor" ([source](../../generators/editor/index.js))
 
-A [partial](../partials.md) that adds editor configuration meta (.editorconfig)
-
+Adds configuration files for IDEs and editors.
 
 ## Usage Example
 
@@ -9,28 +8,25 @@ A [partial](../partials.md) that adds editor configuration meta (.editorconfig)
 $ yo luke:editor
 ```
 
+
 ## Files Created
 
-* `/.editorconfig` (static, [source](../../templates/core/_editorconfig))
+* `.editorconfig` (static, [source](../../core/_editorconfig))
 
-## Other Operations
 
-This [partial](../partials.md) only creates files and/or directories.
+## Dependents
 
-## Dependencies
+This [partial](../partials.md) is included by the following:
 
-This [partial](../partials.md) does not depend on any others.
-
-## Included In
-
-This partial is included in the following [project scaffolds](../project-scaffolds.md):
-
-* [luke:app](../project-scaffolds/app.md)
-* [luke:module](../project-scaffolds/module.md)
+* [luke:app](../project-scaffolds/app.md) ([project scaffold](../project-scaffolds.md))
+* [luke:grits](../project-scaffolds/grits.md) ([project scaffold](../project-scaffolds.md))
+* [luke:module](../project-scaffolds/module.md) ([project scaffold](../project-scaffolds.md))
+* [luke:sls-service](../project-scaffolds/sls-service.md) ([project scaffold](../project-scaffolds.md))
 
 _Note: Additional, unlisted, [project scaffolds](../project-scaffolds.md) may
 automatically include this [partial](../partials.md) by way of
 [partial dependency](../partials.md#partial-dependency)._
+
 
 # Further Reading
 

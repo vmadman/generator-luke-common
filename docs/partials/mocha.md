@@ -1,6 +1,7 @@
 # Partial: "luke:mocha" ([source](../../generators/mocha/index.js))
 
-A [partial](../partials.md) that adds a basic mocha scaffold for JS unit tests.
+This is a "partial" sub-generator that generates a very minimal skeleton
+for unit testing via Mocha and Chai.
 
 ## Usage Example
 
@@ -8,15 +9,11 @@ A [partial](../partials.md) that adds a basic mocha scaffold for JS unit tests.
 $ yo luke:mocha
 ```
 
+
 ## Files Created
 
-* `/scripts/test.sh` (static, [source](../../templates/core/scripts/_mocha-exec-tests.sh))
-* `/test/index.js` (static, [source](../../templates/core/test/_mocha-index.js))
-* `/test/lib/util.js` (static, [source](../../templates/core/test/lib/_util.js))
+* `scripts/test/_test-and-wait.sh` (static, [source](../../core/scripts/test/_test-and-wait.sh))
 
-## Other Operations
-
-* Adds a NPM run script: `scripts/test.sh` (as `test`)
 
 ## Dependencies
 
@@ -24,13 +21,19 @@ This [partial](../partials.md) depends on, and automatically includes:
 
 * [luke:test-dir](../partials/test-dir.md)
 
-## Included In
 
-* [luke:module](../project-scaffolds/module.md)
+## Dependents
+
+This [partial](../partials.md) is included by the following:
+
+* [luke:grits](../project-scaffolds/grits.md) ([project scaffold](../project-scaffolds.md))
+* [luke:module](../project-scaffolds/module.md) ([project scaffold](../project-scaffolds.md))
+* [luke:sls-tests](./sls-tests.md) ([partial](../partials.md))
 
 _Note: Additional, unlisted, [project scaffolds](../project-scaffolds.md) may
 automatically include this [partial](../partials.md) by way of
 [partial dependency](../partials.md#partial-dependency)._
+
 
 # Further Reading
 

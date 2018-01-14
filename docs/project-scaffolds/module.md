@@ -1,35 +1,38 @@
 # Project Scaffold: "luke:module" ([source](../../generators/module/index.js))
 
-A [project scaffold](../project-scaffolds.md) that can be used to create or
-recreate a basic Node.js module.
+This is a "project scaffold" sub-generator that generates a project scaffold
+for a basic Node.js module project.
 
-This scaffold includes everything that the [minimal scaffold](app.md) includes
-as well as a few additional [partials](../partials.md) for Node.js development.
 
 ## Usage Example
 
 ```
+$ npm install -g yo generator-luke
+$ mkdir my-project
+$ cd my-project
 $ yo luke:module
 ```
+
 
 ## Included Partials
 
 The following [partials](../partials.md) are included when this
 [project scaffold](../project-scaffolds.md) is used/specified:
 
-* [luke:editor](../partials/editor.md)
-* [luke:git](../partials/git.md)
-* [luke:js](../partials/js.md)
-* [luke:mit-license](../partials/mit-license.md)
-* [luke:mocha](../partials/mocha.md)
-* [luke:npm](../partials/npm.md)
 * [luke:package](../partials/package.md)
+* [luke:mit-license](../partials/mit-license.md)
 * [luke:readme](../partials/readme.md)
-* [luke:scripts](../partials/scripts.md)
+* [luke:js](../partials/js.md)
+* [luke:editor](../partials/editor.md)
+* [luke:npm](../partials/npm.md)
+* [luke:git](../partials/git.md)
 * [luke:vagrant](../partials/vagrant.md)
+* [luke:mocha](../partials/mocha.md)
+* [luke:scripts](../partials/scripts.md)
 
 _Note: Additional, unlisted, [partials](../partials.md) may be automatically
 included as [partial dependencies](../partials.md#partial-dependency)._
+
 
 # Further Reading
 

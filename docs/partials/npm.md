@@ -1,6 +1,6 @@
 # Partial: "luke:npm" ([source](../../generators/npm/index.js))
 
-A [partial](../partials.md) that adds basic NPM meta files (.npmignore and .npmrc).
+This is a "partial" sub-generator that generates a few standard NPM meta files.
 
 ## Usage Example
 
@@ -8,26 +8,24 @@ A [partial](../partials.md) that adds basic NPM meta files (.npmignore and .npmr
 $ yo luke:npm
 ```
 
+
 ## Files Created
 
-* `/.npmignore` (static, [source](../../templates/core/_npmignore))
-* `/.npmrc` (static, [source](../../templates/core/_npmrc))
+* `.npmrc` (static, [source](../../core/_npmrc))
+* `.npmignore` (static, [source](../../core/_npmignore))
 
-## Other Operations
 
-* Adds a Vagrant provisioning step: `yum-install-node-js`
+## Dependents
 
-## Dependencies
+This [partial](../partials.md) is included by the following:
 
-This [partial](../partials.md) does not depend on any others.
-
-## Included In
-
-* [luke:module](../project-scaffolds/module.md)
+* [luke:grits](../project-scaffolds/grits.md) ([project scaffold](../project-scaffolds.md))
+* [luke:module](../project-scaffolds/module.md) ([project scaffold](../project-scaffolds.md))
 
 _Note: Additional, unlisted, [project scaffolds](../project-scaffolds.md) may
 automatically include this [partial](../partials.md) by way of
 [partial dependency](../partials.md#partial-dependency)._
+
 
 # Further Reading
 

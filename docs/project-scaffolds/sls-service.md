@@ -1,27 +1,39 @@
 # Project Scaffold: "luke:sls-service" ([source](../../generators/sls-service/index.js))
 
-A [project scaffold](../project-scaffolds.md) that can be used to create or
-recreate a basic Serverless service project (C2C Style).
+This is a "project scaffold" sub-generator that generates a project scaffold
+for a Serverless service (c2c style).
 
-This scaffold includes everything that the [module scaffold](module.md) includes
-as well as many additional [partials](../partials.md) for Serverless development.
 
 ## Usage Example
 
 ```
+$ npm install -g yo generator-luke
+$ mkdir my-project
+$ cd my-project
 $ yo luke:sls-service
 ```
+
 
 ## Included Partials
 
 The following [partials](../partials.md) are included when this
 [project scaffold](../project-scaffolds.md) is used/specified:
 
-* .. todo ..
+* [luke:package](../partials/package.md)
+* [luke:sls-config](../partials/sls-config.md)
+* [luke:sls-endpoints-dir](../partials/sls-endpoints-dir.md)
+* [luke:sls-deps](../partials/sls-deps.md)
+* [luke:proprietary-license](../partials/proprietary-license.md)
 * [luke:readme](../partials/readme.md)
+* [luke:js](../partials/js.md)
+* [luke:editor](../partials/editor.md)
+* [luke:git](../partials/git.md)
+* [luke:sls-tests](../partials/sls-tests.md)
+* [luke:scripts](../partials/scripts.md)
 
 _Note: Additional, unlisted, [partials](../partials.md) may be automatically
 included as [partial dependencies](../partials.md#partial-dependency)._
+
 
 # Further Reading
 

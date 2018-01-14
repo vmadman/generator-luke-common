@@ -131,8 +131,8 @@ module.exports = baseGenerator.extend(
 
 				/** @creates static:core/env/vagrant/_always.sh->env/vagrant/always.sh **/
 				/** @creates static:core/env/vagrant/_github-exec.sh->env/vagrant/github-exec.sh **/
-				/** @creates static:core/env/vagrant/_README.md->env/vagrant/README.md **/
-				/** @creates static:core/env/vagrant/_tmp.sh->env/vagrant/tmp.sh **/
+				/** @creates static:core/env/vagrant/_README.md->env/vagrant/README.md */
+				/* @creates static :  core/env/vagrant/_tmp.sh  ->  env/vagrant/tmp.sh  */
 
 				var staticFilenames = [
 					"always.sh", "github-exec.sh",

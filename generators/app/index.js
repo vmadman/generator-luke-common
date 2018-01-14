@@ -4,6 +4,7 @@
  * This scaffold/generator is also the default generator and will execute if
  * no sub-generator is specified.
  *
+ * @default-generator
  * @scaffold
  * @example
  * $ npm install -g yo generator-luke

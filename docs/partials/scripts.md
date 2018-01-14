@@ -1,6 +1,6 @@
 # Partial: "luke:scripts" ([source](../../generators/scripts/index.js))
 
-A [partial](../partials.md) that adds a scripts directory for `npm run` executions.
+Generates the /scripts directory.
 
 ## Usage Example
 
@@ -8,27 +8,33 @@ A [partial](../partials.md) that adds a scripts directory for `npm run` executio
 $ yo luke:scripts
 ```
 
+
 ## Files Created
 
-* `/scripts/READNE.md` (static, [source](../../templates/core/scripts/_README.md))
-* `/scripts/*` (dynamic, _varies_)
+* `scripts/README.md` (static, [source](../../core/scripts/_README.md))
+* `scripts/{script}` (generated)
+
 
 ## Other Operations
 
 * Dynamically copies scripts that are specified by other partials.
 
-## Dependencies
 
-This [partial](../partials.md) does not depend on any others.
+## Dependents
 
-## Included In
+This [partial](../partials.md) is included by the following:
 
-* [luke:app](../project-scaffolds/app.md)
-* [luke:module](../project-scaffolds/module.md)
+* [luke:app](../project-scaffolds/app.md) ([project scaffold](../project-scaffolds.md))
+* [luke:grits](../project-scaffolds/grits.md) ([project scaffold](../project-scaffolds.md))
+* [luke:grits-scripts](./grits-scripts.md) ([partial](../partials.md))
+* [luke:module](../project-scaffolds/module.md) ([project scaffold](../project-scaffolds.md))
+* [luke:pm2](./pm2.md) ([partial](../partials.md))
+* [luke:sls-service](../project-scaffolds/sls-service.md) ([project scaffold](../project-scaffolds.md))
 
 _Note: Additional, unlisted, [project scaffolds](../project-scaffolds.md) may
 automatically include this [partial](../partials.md) by way of
 [partial dependency](../partials.md#partial-dependency)._
+
 
 # Further Reading
 

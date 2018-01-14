@@ -1,6 +1,7 @@
 # Partial: "luke:package" ([source](../../generators/package/index.js))
 
-A [partial](../partials.md) that creates a basic `package.json` file.
+This is a "partial" sub-generator that generates a very basic and generic
+`package.json` file for the project.
 
 ## Usage Example
 
@@ -8,26 +9,26 @@ A [partial](../partials.md) that creates a basic `package.json` file.
 $ yo luke:package
 ```
 
+
 ## Files Created
 
-* `/package.json` (dynamic, _generated_)
+* `package.json` (generated)
 
-## Other Operations
 
-This [partial](../partials.md) only creates files and/or directories.
+## Dependents
 
-## Dependencies
+This [partial](../partials.md) is included by the following:
 
-This [partial](../partials.md) does not depend on any others.
-
-## Included In
-
-* [luke:app](../project-scaffolds/app.md)
-* [luke:module](../project-scaffolds/module.md)
+* [luke:app](../project-scaffolds/app.md) ([project scaffold](../project-scaffolds.md))
+* [luke:grits](../project-scaffolds/grits.md) ([project scaffold](../project-scaffolds.md))
+* [luke:module](../project-scaffolds/module.md) ([project scaffold](../project-scaffolds.md))
+* [luke:sls-service](../project-scaffolds/sls-service.md) ([project scaffold](../project-scaffolds.md))
+* [luke:travis-grits](./travis-grits.md) ([partial](../partials.md))
 
 _Note: Additional, unlisted, [project scaffolds](../project-scaffolds.md) may
 automatically include this [partial](../partials.md) by way of
 [partial dependency](../partials.md#partial-dependency)._
+
 
 # Further Reading
 

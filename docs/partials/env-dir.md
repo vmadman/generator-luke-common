@@ -1,6 +1,8 @@
 # Partial: "luke:env-dir" ([source](../../generators/env-dir/index.js))
 
-A [partial](../partials.md) that adds editor configuration meta (.editorconfig)
+Generates a blank `/env` directory.
+For the most part, this generator is used by other generators (such as the
+vagrant generator), to ensure that the `/env` directory exists.
 
 ## Usage Example
 
@@ -8,22 +10,16 @@ A [partial](../partials.md) that adds editor configuration meta (.editorconfig)
 $ yo luke:env-dir
 ```
 
+
 ## Files Created
 
-* `/env/README.md` (static, [source](../../templates/core/env/_README.md))
+* `env/README.md` (static, [source](../../core/env/_README.md))
 
-## Other Operations
 
-This [partial](../partials.md) only creates files and/or directories.
+## Dependents
 
-## Dependencies
+_None, this partial is not currently being used :\_.
 
-This [partial](../partials.md) does not depend on any others.
-
-## Included In
-
-This partial is not, directly, included in any [project scaffolds](../project-scaffolds.md),
-but it may be included, indirectly, by way of [partial dependency](../partials.md#partial-dependency)._
 
 # Further Reading
 

@@ -1,7 +1,6 @@
 # Partial: "luke:vagrant" ([source](../../generators/vagrant/index.js))
 
-A [partial](../partials.md) that creates a basic Vagrant configuration with 
-provisioning steps.
+Generates a very basic `Vagrantfile` and provision configuration for the project.
 
 ## Usage Example
 
@@ -9,32 +8,30 @@ provisioning steps.
 $ yo luke:vagrant
 ```
 
+
 ## Files Created
 
-* `/Vagrantfile` (dynamic, [template](../../templates/core/_Vagrantfile))
-* `/env/vagrant/provision.sh` (dynamic, [template](../../templates/core/env/vagrant/_provision.sh))
-* `/env/vagrant/always.sh` (static, [source](../../templates/core/env/vagrant/_always.sh))
-* `/env/vagrant/github-exec.sh` (static, [source](../../templates/core/env/vagrant/_github-exec.sh))
-* `/env/vagrant/README.md` (static, [source](../../templates/core/env/vagrant/_README.md))
-* `/env/vagrant/tmp.sh` (static, [source](../../templates/core/env/vagrant/_tmp.sh))
-* `/env/vagrant/project/README.md` (static, [source](../../templates/core/env/vagrant/project/_README.md))
+* `env/vagrant/always.sh` (static, [source](../../core/env/vagrant/_always.sh))
+* `env/vagrant/github-exec.sh` (static, [source](../../core/env/vagrant/_github-exec.sh))
+* `env/vagrant/README.md` (static, [source](../../core/env/vagrant/_README.md))
+* `env/vagrant/tmp.sh` (static, [source](../../core/env/vagrant/_tmp.sh))
+* `env/vagrant/project/README.md` (static, [source](../../core/env/vagrant/project/_README.md))
+* `Vagrantfile` (template, [source](../../core/_Vagrantfile))
+* `env/vagrant/provision.sh` (template, [source](../../core/env/vagrant/_provision.sh))
 
-## Other Operations
 
-This [partial](../partials.md) only creates files and/or directories.
+## Dependents
 
-## Dependencies
+This [partial](../partials.md) is included by the following:
 
-This [partial](../partials.md) does not depend on any others.
-
-## Included In
-
-* [luke:app](../project-scaffolds/app.md)
-* [luke:module](../project-scaffolds/module.md)
+* [luke:app](../project-scaffolds/app.md) ([project scaffold](../project-scaffolds.md))
+* [luke:grits](../project-scaffolds/grits.md) ([project scaffold](../project-scaffolds.md))
+* [luke:module](../project-scaffolds/module.md) ([project scaffold](../project-scaffolds.md))
 
 _Note: Additional, unlisted, [project scaffolds](../project-scaffolds.md) may
 automatically include this [partial](../partials.md) by way of
 [partial dependency](../partials.md#partial-dependency)._
+
 
 # Further Reading
 

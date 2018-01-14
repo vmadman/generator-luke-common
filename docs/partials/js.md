@@ -1,7 +1,6 @@
 # Partial: "luke:js" ([source](../../generators/js/index.js))
 
-A [partial](../partials.md) that adds meta files for JS development, such as
-linting configurations.
+This is a "partial" sub-generator that generates standard JS meta files.
 
 ## Usage Example
 
@@ -9,25 +8,25 @@ linting configurations.
 $ yo luke:js
 ```
 
+
 ## Files Created
 
-* `/.eslintrc` (static, [source](../../templates/core/_eslintrc))
+* `.eslintrc` (static, [source](../../core/_eslintrc))
+* `typedefs.js` (static, [source](../../core/_typedefs.js))
 
-## Other Operations
 
-This [partial](../partials.md) only creates files and/or directories.
+## Dependents
 
-## Dependencies
+This [partial](../partials.md) is included by the following:
 
-This [partial](../partials.md) does not depend on any others.
-
-## Included In
-
-* [luke:module](../project-scaffolds/module.md)
+* [luke:grits](../project-scaffolds/grits.md) ([project scaffold](../project-scaffolds.md))
+* [luke:module](../project-scaffolds/module.md) ([project scaffold](../project-scaffolds.md))
+* [luke:sls-service](../project-scaffolds/sls-service.md) ([project scaffold](../project-scaffolds.md))
 
 _Note: Additional, unlisted, [project scaffolds](../project-scaffolds.md) may
 automatically include this [partial](../partials.md) by way of
 [partial dependency](../partials.md#partial-dependency)._
+
 
 # Further Reading
 

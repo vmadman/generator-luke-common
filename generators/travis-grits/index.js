@@ -35,7 +35,7 @@ module.exports = baseGenerator.extend(
 
 				var me = this;
 
-				// Add an npm script for running grits on travis
+				/** @operation Adds a NPM run script: `scripts/grits/render/ci.sh` (as `grits-render-ci`) **/
 				me._createSharedObject(
 					"script", "grits/render/ci.sh", {
 						name : "grits-render-ci",

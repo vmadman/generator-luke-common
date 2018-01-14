@@ -1,7 +1,8 @@
 # Partial: "luke:test-dir" ([source](../../generators/test-dir/index.js))
 
-A [partial](../partials.md) that creates the fundamental directories for unit
-testing (`test/`).
+Generates a [basically] empty `/test` directory.
+For the most part, this generator is used by other generators (such as the
+mocha generator), to ensure that the `/test` directory exists.
 
 ## Usage Example
 
@@ -9,23 +10,23 @@ testing (`test/`).
 $ yo luke:test-dir
 ```
 
+
 ## Files Created
 
-* `/test/README.md` (static, [source](../../templates/core/test/_README.md))
-* `/test/fixtures/README.md` (static, [source](../../templates/core/test/fixtures/_README.md))
+* `test/README.md` (static, [source](../../core/test/_README.md))
+* `test/lib/README.md` (static, [source](../../core/test/lib/_README.md))
 
-## Other Operations
 
-This [partial](../partials.md) only creates files and/or directories.
+## Dependents
 
-## Dependencies
+This [partial](../partials.md) is included by the following:
 
-This [partial](../partials.md) does not depend on any others.
+* [luke:mocha](./mocha.md) ([partial](../partials.md))
 
-## Included In
+_Note: Additional, unlisted, [project scaffolds](../project-scaffolds.md) may
+automatically include this [partial](../partials.md) by way of
+[partial dependency](../partials.md#partial-dependency)._
 
-This partial is not, directly, included in any [project scaffolds](../project-scaffolds.md),
-but it may be included, indirectly, by way of [partial dependency](../partials.md#partial-dependency)._
 
 # Further Reading
 

@@ -1,6 +1,6 @@
 # Partial: "luke:git" ([source](../../generators/git/index.js))
 
-A [partial](../partials.md) that creates a few GIT meta files.
+Generates a few standard GIT meta files.
 
 ## Usage Example
 
@@ -8,27 +8,25 @@ A [partial](../partials.md) that creates a few GIT meta files.
 $ yo luke:git
 ```
 
+
 ## Files Created
 
-* `/.gitattributes` (static, [source](../../templates/core/_gitattributes))
-* `/.gitignore` (static, [source](../../templates/core/_gitignore))
+* `.gitignore` (static, [source](../../core/_gitignore))
+* `.gitattributes` (static, [source](../../core/_gitattributes))
 
-## Other Operations
 
-This [partial](../partials.md) only creates files and/or directories.
+## Dependents
 
-## Dependencies
+This [partial](../partials.md) is included by the following:
 
-This [partial](../partials.md) does not depend on any others.
-
-## Included In
-
-* [luke:app](../project-scaffolds/app.md)
-* [luke:module](../project-scaffolds/module.md)
+* [luke:app](../project-scaffolds/app.md) ([project scaffold](../project-scaffolds.md))
+* [luke:module](../project-scaffolds/module.md) ([project scaffold](../project-scaffolds.md))
+* [luke:sls-service](../project-scaffolds/sls-service.md) ([project scaffold](../project-scaffolds.md))
 
 _Note: Additional, unlisted, [project scaffolds](../project-scaffolds.md) may
 automatically include this [partial](../partials.md) by way of
 [partial dependency](../partials.md#partial-dependency)._
+
 
 # Further Reading
 
