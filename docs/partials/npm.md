@@ -11,8 +11,8 @@ $ yo luke:npm
 
 ## Files Created
 
-* `.npmrc` (static, [source](../../core/_npmrc))
-* `.npmignore` (static, [source](../../core/_npmignore))
+* `.npmrc` (static, [source](../../templates/core/_npmrc))
+* `.npmignore` (static, [source](../../templates/core/_npmignore))
 
 
 ## Dependents

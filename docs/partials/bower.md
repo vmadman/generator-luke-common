@@ -11,9 +11,9 @@ $ yo luke:bower
 
 ## Files Created
 
-* `bower.json` (template, [source](../../core/_bower.json))
-* `.bowerrc` (template, [source](../../core/_bowerrc.json))
-* `{bowerComponentsPath}/README.md` (template, [source](../../core/_bower-readme.md))
+* `bower.json` (template, [source](../../templates/core/_bower.json))
+* `.bowerrc` (template, [source](../../templates/core/_bowerrc.json))
+* `{bowerComponentsPath}/README.md` (template, [source](../../templates/core/_bower-readme.md))
 
 
 ## Dependents

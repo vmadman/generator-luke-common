@@ -11,8 +11,8 @@ $ yo luke:travis-grits
 
 ## Files Created
 
-* `scripts/grits/_vars.sh` (static, [source](../../grits/scripts/grits/_vars.sh))
-* `.travis.yml` (static, [source](../../grits/_travis.yml))
+* `scripts/grits/_vars.sh` (static, [source](../../templates/grits/scripts/grits/_vars.sh))
+* `.travis.yml` (static, [source](../../templates/grits/_travis.yml))
 
 
 ## Other Operations

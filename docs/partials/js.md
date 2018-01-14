@@ -11,8 +11,8 @@ $ yo luke:js
 
 ## Files Created
 
-* `.eslintrc` (static, [source](../../core/_eslintrc))
-* `typedefs.js` (static, [source](../../core/_typedefs.js))
+* `.eslintrc` (static, [source](../../templates/core/_eslintrc))
+* `typedefs.js` (static, [source](../../templates/core/_typedefs.js))
 
 
 ## Dependents

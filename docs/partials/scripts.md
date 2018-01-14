@@ -11,7 +11,7 @@ $ yo luke:scripts
 
 ## Files Created
 
-* `scripts/README.md` (static, [source](../../core/scripts/_README.md))
+* `scripts/README.md` (static, [source](../../templates/core/scripts/_README.md))
 * `scripts/{script}` (generated)
 
 

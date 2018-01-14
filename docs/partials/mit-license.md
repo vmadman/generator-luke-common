@@ -11,7 +11,7 @@ $ yo luke:mit-license
 
 ## Files Created
 
-* `LICENSE.md` (template, [source](../../core/_MIT-LICENSE.md))
+* `LICENSE.md` (template, [source](../../templates/core/_MIT-LICENSE.md))
 
 
 ## Dependents

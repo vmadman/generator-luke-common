@@ -11,7 +11,7 @@ $ yo luke:grits-scripts
 
 ## Files Created
 
-* `scripts/grits/_vars.sh` (static, [source](../../grits/scripts/grits/_vars.sh))
+* `scripts/grits/_vars.sh` (static, [source](../../templates/grits/scripts/grits/_vars.sh))
 
 
 ## Dependencies

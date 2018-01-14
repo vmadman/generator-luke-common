@@ -12,7 +12,7 @@ $ yo luke:mocha
 
 ## Files Created
 
-* `scripts/test/_test-and-wait.sh` (static, [source](../../core/scripts/test/_test-and-wait.sh))
+* `scripts/test/_test-and-wait.sh` (static, [source](../../templates/core/scripts/test/_test-and-wait.sh))
 
 
 ## Dependencies

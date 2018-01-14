@@ -11,7 +11,7 @@ $ yo luke:readme
 
 ## Files Created
 
-* `README.md` (template, [source](../../core/_README.md))
+* `README.md` (template, [source](../../templates/core/_README.md))
 
 
 ## Dependents

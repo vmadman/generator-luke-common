@@ -13,8 +13,8 @@ $ yo luke:test-dir
 
 ## Files Created
 
-* `test/README.md` (static, [source](../../core/test/_README.md))
-* `test/lib/README.md` (static, [source](../../core/test/lib/_README.md))
+* `test/README.md` (static, [source](../../templates/core/test/_README.md))
+* `test/lib/README.md` (static, [source](../../templates/core/test/lib/_README.md))
 
 
 ## Dependents

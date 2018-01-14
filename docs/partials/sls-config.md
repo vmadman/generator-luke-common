@@ -11,12 +11,12 @@ $ yo luke:sls-config
 
 ## Files Created
 
-* `serverless.env.yml` (template, [source](../../serverless/_serverless.env.yml))
-* `serverless.yml` (template, [source](../../serverless/_serverless.yml))
-* `.sls/README.md` (static, [source](../../serverless/_sls/_README.md))
-* `.sls/projectConfig.json` (template, [source](../../serverless/_sls/_projectConfig.json))
-* `.sls/projectConfig.yml` (template, [source](../../serverless/_sls/_projectConfig.yml))
-* `.sls/serverless.common.yml` (template, [source](../../serverless/_sls/_serverless.common.yml))
+* `serverless.env.yml` (template, [source](../../templates/serverless/_serverless.env.yml))
+* `serverless.yml` (template, [source](../../templates/serverless/_serverless.yml))
+* `.sls/README.md` (static, [source](../../templates/serverless/_sls/_README.md))
+* `.sls/projectConfig.json` (template, [source](../../templates/serverless/_sls/_projectConfig.json))
+* `.sls/projectConfig.yml` (template, [source](../../templates/serverless/_sls/_projectConfig.yml))
+* `.sls/serverless.common.yml` (template, [source](../../templates/serverless/_sls/_serverless.common.yml))
 
 
 ## Dependents

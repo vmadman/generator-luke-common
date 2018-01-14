@@ -11,7 +11,7 @@ $ yo luke:pm2
 
 ## Files Created
 
-* `env/pm2/example-app.json` (static, [source](../../core/env/pm2/_example-app.json))
+* `env/pm2/example-app.json` (static, [source](../../templates/core/env/pm2/_example-app.json))
 
 
 ## Dependencies

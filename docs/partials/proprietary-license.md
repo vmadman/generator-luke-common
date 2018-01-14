@@ -11,7 +11,7 @@ $ yo luke:proprietary-license
 
 ## Files Created
 
-* `LICENSE.md` (static, [source](../../core/_PROPRIETARY-LICENSE.md))
+* `LICENSE.md` (static, [source](../../templates/core/_PROPRIETARY-LICENSE.md))
 
 
 ## Dependents

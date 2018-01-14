@@ -12,7 +12,7 @@ $ yo luke:sls-tests
 
 ## Files Created
 
-* `test/lib/util.js` (static, [source](../../serverless/test/lib/_util.js))
+* `test/lib/util.js` (static, [source](../../templates/serverless/test/lib/_util.js))
 
 
 ## Dependencies

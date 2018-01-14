@@ -13,7 +13,7 @@ $ yo luke:env-dir
 
 ## Files Created
 
-* `env/README.md` (static, [source](../../core/env/_README.md))
+* `env/README.md` (static, [source](../../templates/core/env/_README.md))
 
 
 ## Dependents

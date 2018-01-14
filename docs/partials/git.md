@@ -11,8 +11,8 @@ $ yo luke:git
 
 ## Files Created
 
-* `.gitignore` (static, [source](../../core/_gitignore))
-* `.gitattributes` (static, [source](../../core/_gitattributes))
+* `.gitignore` (static, [source](../../templates/core/_gitignore))
+* `.gitattributes` (static, [source](../../templates/core/_gitattributes))
 
 
 ## Dependents

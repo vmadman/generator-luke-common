@@ -13,7 +13,7 @@ $ yo luke:sls-endpoints-dir
 
 ## Files Created
 
-* `endpoints/README.md` (static, [source](../../serverless/endpoints/_README.md))
+* `endpoints/README.md` (static, [source](../../templates/serverless/endpoints/_README.md))
 
 
 ## Dependents

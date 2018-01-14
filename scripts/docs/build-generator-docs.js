@@ -657,7 +657,7 @@ function generateDocForPartial( data ) {
 			str += "* `" + file.dest + "` (" + file.type;
 
 			if( file.src !== null ) {
-				str += ", [source](../../" + file.src + ")";
+				str += ", [source](../../templates/" + file.src + ")";
 			}
 
 			str += ")";

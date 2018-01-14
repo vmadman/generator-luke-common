@@ -11,13 +11,13 @@ $ yo luke:vagrant
 
 ## Files Created
 
-* `env/vagrant/always.sh` (static, [source](../../core/env/vagrant/_always.sh))
-* `env/vagrant/github-exec.sh` (static, [source](../../core/env/vagrant/_github-exec.sh))
-* `env/vagrant/README.md` (static, [source](../../core/env/vagrant/_README.md))
-* `env/vagrant/tmp.sh` (static, [source](../../core/env/vagrant/_tmp.sh))
-* `env/vagrant/project/README.md` (static, [source](../../core/env/vagrant/project/_README.md))
-* `Vagrantfile` (template, [source](../../core/_Vagrantfile))
-* `env/vagrant/provision.sh` (template, [source](../../core/env/vagrant/_provision.sh))
+* `env/vagrant/always.sh` (static, [source](../../templates/core/env/vagrant/_always.sh))
+* `env/vagrant/github-exec.sh` (static, [source](../../templates/core/env/vagrant/_github-exec.sh))
+* `env/vagrant/README.md` (static, [source](../../templates/core/env/vagrant/_README.md))
+* `env/vagrant/tmp.sh` (static, [source](../../templates/core/env/vagrant/_tmp.sh))
+* `env/vagrant/project/README.md` (static, [source](../../templates/core/env/vagrant/project/_README.md))
+* `Vagrantfile` (template, [source](../../templates/core/_Vagrantfile))
+* `env/vagrant/provision.sh` (template, [source](../../templates/core/env/vagrant/_provision.sh))
 
 
 ## Dependents

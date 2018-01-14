@@ -11,7 +11,7 @@ $ yo luke:editor
 
 ## Files Created
 
-* `.editorconfig` (static, [source](../../core/_editorconfig))
+* `.editorconfig` (static, [source](../../templates/core/_editorconfig))
 
 
 ## Dependents
