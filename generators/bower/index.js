@@ -2,6 +2,7 @@
  * Adds Bower configurations to a project.
  *
  * @partial
+ * @operation Adds a Vagrant provisioning step: `npm-install-bower`
  * @promptsFor projectName, fullName, emailAddress, bowerComponentsPath
  * @example
  * $ yo luke:bower

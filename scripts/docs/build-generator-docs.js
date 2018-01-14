@@ -319,15 +319,7 @@ function parseOneTag( item, tag ) {
 			break;
 
 		default:
-			//console.log("--- unknown tag!! ---");
-			//console.log( tag );
-
-			// todo: we probs shouldn't throw errors because
-			// it would disallow normal jsdoc markup in the file
-			// but, for now, I want to be sure there aren't
-			// any generator tags being skipped...
-			throw new Error("Unknown/unrecognized tag (" + tag.type + ")!");
-
+			// Ignore it..
 			break;
 
 	}
@@ -583,7 +575,7 @@ function generateDocForScaffold( data ) {
 	str += "* [About Project Scaffolds](../project-scaffolds.md) - Basic information about project scaffolds\n";
 	str += "* [About Partials](../partials.md) - Information about partials\n";
 	str += "* [About Sub-Generators](../generators.md) - General information about generators and sub-generators\n";
-	str += "* [Project README](../README.md) - Basic project information\n";
+	str += "* [Project README](../../README.md) - Basic project information\n";
 
 	return str;
 
@@ -760,7 +752,7 @@ function generateDocForPartial( data ) {
 	str += "* [About Partials](../partials.md) - Information about partials\n";
 	str += "* [About Project Scaffolds](../project-scaffolds.md) - Basic information about project scaffolds\n";
 	str += "* [About Sub-Generators](../generators.md) - General information about generators and sub-generators\n";
-	str += "* [Project README](../README.md) - Basic project information\n";
+	str += "* [Project README](../../README.md) - Basic project information\n";
 
 	return str;
 

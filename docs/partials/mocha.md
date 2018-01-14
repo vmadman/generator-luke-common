@@ -15,6 +15,11 @@ $ yo luke:mocha
 * `scripts/test/_test-and-wait.sh` (static, [source](../../templates/core/scripts/test/_test-and-wait.sh))
 
 
+## Other Operations
+
+* Adds a NPM run script: `scripts/test.sh` (as `test`)
+
+
 ## Dependencies
 
 This [partial](../partials.md) depends on, and automatically includes:
@@ -42,4 +47,4 @@ automatically include this [partial](../partials.md) by way of
 * [About Partials](../partials.md) - Information about partials
 * [About Project Scaffolds](../project-scaffolds.md) - Basic information about project scaffolds
 * [About Sub-Generators](../generators.md) - General information about generators and sub-generators
-* [Project README](../README.md) - Basic project information
+* [Project README](../../README.md) - Basic project information

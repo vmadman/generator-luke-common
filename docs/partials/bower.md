@@ -16,6 +16,11 @@ $ yo luke:bower
 * `{bowerComponentsPath}/README.md` (template, [source](../../templates/core/_bower-readme.md))
 
 
+## Other Operations
+
+* Adds a Vagrant provisioning step: `npm-install-bower`
+
+
 ## Dependents
 
 This [partial](../partials.md) is included by the following:
@@ -34,4 +39,4 @@ automatically include this [partial](../partials.md) by way of
 * [About Partials](../partials.md) - Information about partials
 * [About Project Scaffolds](../project-scaffolds.md) - Basic information about project scaffolds
 * [About Sub-Generators](../generators.md) - General information about generators and sub-generators
-* [Project README](../README.md) - Basic project information
+* [Project README](../../README.md) - Basic project information

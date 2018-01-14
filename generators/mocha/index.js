@@ -3,6 +3,7 @@
  * for unit testing via Mocha and Chai.
  *
  * @partial
+ * @operation Adds a NPM run script: `scripts/test.sh` (as `test`)
  * @uses test-dir
  * @example
  * $ yo luke:mocha

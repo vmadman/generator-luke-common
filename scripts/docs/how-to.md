@@ -1,7 +1,8 @@
 Using the Doc Generator
 =======================
 
-
+This document is on the todo list.. but here are a bunch of samples
+that illustrate how the tags are used in sub-generator source files.
 
 
 ```

@@ -2,6 +2,7 @@
  * This is a "partial" sub-generator that generates a few standard NPM meta files.
  *
  * @partial
+ * @operation Adds a Vagrant provisioning step: `yum-install-node-js`
  * @example
  * $ yo luke:npm
  *

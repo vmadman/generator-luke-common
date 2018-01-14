@@ -28,4 +28,4 @@ _None, this partial is not currently being used :\_.
 * [About Partials](../partials.md) - Information about partials
 * [About Project Scaffolds](../project-scaffolds.md) - Basic information about project scaffolds
 * [About Sub-Generators](../generators.md) - General information about generators and sub-generators
-* [Project README](../README.md) - Basic project information
+* [Project README](../../README.md) - Basic project information
