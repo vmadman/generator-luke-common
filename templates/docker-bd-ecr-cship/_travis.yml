@@ -1,0 +1,29 @@
+sudo:
+- required
+language:
+- node_js
+node_js:
+- '6'
+branches:
+  only:
+  - master
+  - base-image
+services:
+- docker
+before_install:
+- pip install --user awscli
+install:
+- export PATH=$PATH:$HOME/.local/bin
+before_script:
+- chmod +x scripts -R
+script:
+- npm run deploy:build
+- npm run ci:deploy:push
+- npm run ci:deploy:cs
+env:
+  global:
+
+# Use the Travis CLI to add any env variables that you need, e.g:
+#
+# $ travis encrypt AWS_ACCESS_KEY_ID="XXXXXXXXXXXXXXXXXXXX" --add env.global
+# $ travis encrypt AWS_SECRET_ACCESS_KEY="xx0xx0XXxXxxXXx0//0XXxx0X0xXxXXxx/XxX0Xx" --add env.global

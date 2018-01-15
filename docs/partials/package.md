@@ -20,6 +20,7 @@ $ yo luke:package
 This [partial](../partials.md) is included by the following:
 
 * [luke:app](../project-scaffolds/app.md) ([project scaffold](../project-scaffolds.md))
+* [luke:cship](../project-scaffolds/cship.md) ([project scaffold](../project-scaffolds.md))
 * [luke:grits](../project-scaffolds/grits.md) ([project scaffold](../project-scaffolds.md))
 * [luke:module](../project-scaffolds/module.md) ([project scaffold](../project-scaffolds.md))
 * [luke:sls-service](../project-scaffolds/sls-service.md) ([project scaffold](../project-scaffolds.md))

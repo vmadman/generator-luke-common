@@ -1,0 +1,4 @@
+FROM <%= awsCustomerId %>.dkr.ecr.us-east-1.amazonaws.com/<%= ecrNamespace %>/<%= dockerImageName %>:base
+MAINTAINER <%= emailAddress %>
+
+# ADD config/somefile /path/in/container/somefile
