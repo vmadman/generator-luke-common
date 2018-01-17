@@ -15,7 +15,7 @@ cluster.
 1. [Installation](docs/installation.md)
 2. [Image Hierarchy](docs/image-hierarchy.md)
 3. [Developing the Base Image](docs/dev-base-image.md)
-4. [Developing the Deploy Image](docs/dev-deploy-image.md) (todo)
+4. [Developing the Deploy Image](docs/dev-deploy-image.md)
 5. [Project Scripts](docs/project-scripts.md)
 6. [Deployment Configuration Notes](docs/deploy-config.md)
 

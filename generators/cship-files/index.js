@@ -190,10 +190,10 @@ module.exports = baseGenerator.extend(
 
 				/**
 				 * @creates static:docker-bd-ecr-cship/scripts/ci/update-cs-application.sh->scripts/ci/update-cs-application.sh
-				 * @operation Adds a NPM run script named `ci:base:cs`
+				 * @operation Adds a NPM run script named `ci:deploy:cs`
 				 */
 				me._addNpmScript(
-					"ci:base:cs",
+					"ci:deploy:cs",
 					"docker-bd-ecr-cship",
 					"scripts/ci/update-cs-application.sh"
 				);

@@ -1,15 +1,15 @@
 #!/bin/bash
 
 # This script can be used to execute the local docker image for testing purposes.
-# Before executing this script you should build the local 'deploy image' by
-# using the appropriate `npm run` command (i.e. `npm run deploy:build`).
+# Before executing this script you should build the local 'base image' by
+# using the appropriate `npm run` command (i.e. `npm run base:build`).
 
 # Import common variables
 source "./scripts/_vars.sh"
 
 # Say Hello
 echo ""
-echo "Executing the Base Image ($ECR_SHORT_DEPLOY)"
+echo "Executing the Base Image ($ECR_SHORT_BASE)"
 echo ""
 echo "    - with Bash shell"
 echo "    - without config directory mapping"
@@ -29,6 +29,6 @@ docker run \
 	--rm \
 	--name "$DOCKER_TEST_CONTAINER" \
 	--entrypoint "/bin/ash" \
-	"$ECR_FULL_DEPLOY" \
+	"$ECR_FULL_BASE" \
 	&& true
 
