@@ -28,7 +28,8 @@ docker run \
 	-ti \
 	--rm \
 	--name "$DOCKER_TEST_CONTAINER" \
-	--entrypoint "/bin/ash" \
+	--entrypoint "/bin/bash" \
 	"$ECR_FULL_BASE" \
 	&& true
 
+# *Set entrypoint to /bin/ash for Alpine containers
