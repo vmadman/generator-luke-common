@@ -8,6 +8,7 @@
  *
  * @promptsFor dockerImageName, awsCustomerId, ecrNamespace
  * @promptsFor containershipOrgId, containershipClusterId, containershipApiKey
+ * @promptsFor dockerSourceImage
  * @author Luke Chavers <me@lukechavers.com>
  * @created 2018-01-15
  */
@@ -37,16 +38,6 @@ module.exports = baseGenerator.extend(
 			// Define custom prompts
 			let customPrompts = [];
 
-			// Docker
-			customPrompts.push( {
-				type      : "input",
-				name      : "dockerImageName",
-				message   : "What is the name of your Docker image?",
-				default   : "my-image",
-				cacheMode : "prefer-cache",
-				askAgain  : false
-			} );
-
 			// AWS
 			customPrompts.push( {
 				type      : "input",
@@ -55,7 +46,7 @@ module.exports = baseGenerator.extend(
 				default   : "0123456789",
 				cacheMode : "prefer-cache",
 				askAgain  : false
-			} );
+			});
 			customPrompts.push( {
 				type      : "input",
 				name      : "ecrNamespace",
@@ -64,29 +55,80 @@ module.exports = baseGenerator.extend(
 				cacheMode : "prefer-cache",
 				askAgain  : false
 			} );
+			customPrompts.push( {
+				type      : "input",
+				name      : "awsDeployUser",
+				message   : "What is the IAM USER you'll use to deploy to ECR?",
+				default   : "some-deploy-user",
+				cacheMode : "prefer-cache",
+				askAgain  : false
+			});
+			customPrompts.push( {
+				type      : "input",
+				name      : "awsDeployPolicy",
+				message   : "What is the IAM POLICY you'll use to deploy to ECR?",
+				default   : "some-deploy-policy",
+				cacheMode : "prefer-cache",
+				askAgain  : false
+			});
 
 			// ContainerShip
 			customPrompts.push( {
 				type      : "input",
 				name      : "containershipOrgId",
 				message   : "What is your ContainerShip Organization ID?",
-				default   : "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+				default   : "00000000-0000-0000-0000-000000000000",
 				cacheMode : "prefer-cache",
-				askAgain  : false
+				askAgain  : false,
+				validationRegex: /^[af0-9]{8}\-[af0-9]{4}\-[af0-9]{4}\-[af0-9]{4}\-[af0-9]{12}$/,
+				validateStrictly: false,
+				validationFailureMessage: "The provided value does not appear to be a valid UUID"
 			} );
 			customPrompts.push( {
 				type      : "input",
 				name      : "containershipClusterId",
 				message   : "What is your ContainerShip Cluster ID?",
-				default   : "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+				default   : "00000000-0000-0000-0000-000000000000",
 				cacheMode : "prefer-cache",
-				askAgain  : false
+				askAgain  : false,
+				validationRegex: /^[af0-9]{8}\-[af0-9]{4}\-[af0-9]{4}\-[af0-9]{4}\-[af0-9]{12}$/,
+				validateStrictly: false,
+				validationFailureMessage: "The provided value does not appear to be a valid UUID"
 			} );
 			customPrompts.push( {
 				type      : "input",
 				name      : "containershipApiKey",
 				message   : "What is your ContainerShip API Key?",
 				default   : "<cs-api-key-goes-here>",
+				cacheMode : "prefer-cache",
+				askAgain  : false
+			} );
+
+			// Docker
+			customPrompts.push( {
+				type      : "input",
+				name      : "dockerImageName",
+				message   : "What is the OUTPUT name of your Docker image?",
+				default   : "my-image",
+				cacheMode : "prefer-cache",
+				askAgain  : false
+			} );
+			customPrompts.push( {
+				type      : "input",
+				name      : "dockerSourceImage",
+				message   : "What image should the base image pull FROM (source)?",
+				default   : "<auto-generate-example>",
+				compose: function( promptName, allValues, promptConfig, allPrompts ) {
+
+					// This function is called if the user does
+					// not provide a value (uses the default value).
+
+					return allValues.awsCustomerId +
+								".dkr.ecr.us-east-1.amazonaws.com/" +
+								allValues.ecrNamespace +
+								"/some-other-image:latest";
+
+				},
 				cacheMode : "prefer-cache",
 				askAgain  : false
 			} );
@@ -113,6 +155,7 @@ module.exports = baseGenerator.extend(
 				var me = this;
 
 				// -- Basic Docker Scripts -------------------------------------
+
 
 				/**
 				 * @creates static:docker-bd-ecr-cship/scripts/base-image/_build-base-image.sh->scripts/base-image/build-base-image.sh
@@ -167,13 +210,13 @@ module.exports = baseGenerator.extend(
 				// -- ECR Scripts ----------------------------------------------
 
 				/**
-				 * @creates static:docker-bd-ecr-cship/scripts/ci/push-base-image-to-ecr.sh->scripts/ci/push-base-image-to-ecr.sh
-				 * @operation Adds a NPM run script named `ci:base:push`
+				 * @creates static:docker-bd-ecr-cship/scripts/base-image/push-base-image-to-ecr.sh->scripts/base-image/push-base-image-to-ecr.sh
+				 * @operation Adds a NPM run script named `base:push`
 				 */
 				me._addNpmScript(
-					"ci:base:push",
+					"base:push",
 					"docker-bd-ecr-cship",
-					"scripts/ci/push-base-image-to-ecr.sh"
+					"scripts/base-image/push-base-image-to-ecr.sh"
 				);
 
 				/**
@@ -217,6 +260,20 @@ module.exports = baseGenerator.extend(
 					"docker-bd-ecr-cship",
 					"scripts/containership/show-production-status.sh"
 				);
+
+				// -- Special CI Scripts ---------------------------------------
+
+				/**
+				 * @creates static:docker-bd-ecr-cship/scripts/ci/_conditionally-rebuild-and-push-base.sh->scripts/ci/conditionally-rebuild-and-push-base.sh
+				 * @operation Adds a NPM run script named `ci:base:rebuild`
+				 */
+				me._addNpmScript(
+					"ci:base:rebuild",
+					"docker-bd-ecr-cship",
+					"scripts/ci/conditionally-rebuild-and-push-base.sh"
+				);
+
+
 
 			}
 
@@ -273,9 +330,11 @@ module.exports = baseGenerator.extend(
 				// -- Documentation --------------------------------------------
 
 
-				/** @creates static:docker-bd-ecr-cship/docs/_deploy-config.md->docs/deploy-config.md **/
-				me.fs.copy(
-					me.templatePath( "docker-bd-ecr-cship/docs/_deploy-config.md" ), me.destinationPath( "docs/deploy-config.md" )
+				/** @creates template:docker-bd-ecr-cship/docs/_deploy-config.md->docs/deploy-config.md **/
+				me.fs.copyTpl(
+					me.templatePath( "docker-bd-ecr-cship/docs/_deploy-config.md" ),
+					me.destinationPath( "docs/deploy-config.md" ),
+					me.props
 				);
 
 				/** @creates static:docker-bd-ecr-cship/docs/_dev-base-image.md->docs/dev-base-image.md **/
@@ -328,3 +387,18 @@ module.exports = baseGenerator.extend(
 
 	}
 );
+
+function _depr_deriveDockerSourceImage( props ) {
+
+	if( props.dockerSourceImage !== "<auto-generate-example>" ) {
+		return;
+	}
+
+	props.dockerSourceImage = props.awsCustomerId +
+								".dkr.ecr.us-east-1.amazonaws.com/" +
+								props.ecrNamespace +
+								"/some-other-image:latest";
+
+	console.log( props );
+
+}

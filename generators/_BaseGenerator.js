@@ -11,6 +11,8 @@ var yeoman 	= require( "yeoman-generator" );
 var chalk 	= require( "chalk" );
 var yosay 	= require( "yosay" );
 var _ 		= require( "lodash" );
+var fs      = require( "fs" );
+var PATH    = require( "path" );
 
 module.exports = yeoman.Base.extend(
 	{
@@ -47,6 +49,208 @@ module.exports = yeoman.Base.extend(
 
 		},
 
+		/**
+		 * Gets a property value from the project's package.json file, if the
+		 * file exists and the property is defined.
+		 *
+		 * This method is often used within the 'derive' method of user
+		 * prompts to allow them to defer to the package.json file for
+		 * values when available.
+		 *
+		 * You can find usage examples of this method in `#_getBasePrompts()`.
+		 *
+		 * @param {string} propName The property name to read from package.json
+		 * @returns {*} The value from the package.json file.
+		 * @private
+		 */
+		_loadPackageValue: function( propName ) {
+
+			var me = this;
+			var pkg = me._loadPackageJson();
+			var ret = null;
+
+			switch( propName ) {
+
+				case "author.name":
+					if( pkg.author !== undefined
+						&& pkg.author !== null
+						&& typeof pkg.author === "object"
+						&& pkg.author.name !== undefined
+						&& pkg.author.name !== null
+						&& pkg.author.name !== "" ) {
+						
+						ret = pkg.author.name;
+						
+					}
+					break;
+
+				case "author.email":
+					if( pkg.author !== undefined
+						&& pkg.author !== null
+						&& typeof pkg.author === "object"
+						&& pkg.author.email !== undefined
+						&& pkg.author.email !== null
+						&& pkg.author.email !== "" ) {
+
+						ret = pkg.author.email;
+
+					}
+					break;
+					
+				case "github.owner":
+					if( pkg.repository !== undefined
+						&& pkg.repository !== null
+						&& pkg.repository !== "" ) {
+
+						var githubInfo = me._parseGitHubRepo( pkg.repository );
+						ret = githubInfo.owner;
+
+					}
+					break;
+
+				case "github.repo":
+					if( pkg.repository !== undefined
+						&& pkg.repository !== null
+						&& pkg.repository !== "" ) {
+
+						var githubInfo = me._parseGitHubRepo( pkg.repository );
+						ret = githubInfo.repo;
+
+					}
+					break;
+
+				default:
+
+					if( pkg[ propName ] !== undefined &&
+						pkg[ propName ] !== null &&
+						pkg[ propName ] !== "" ) {
+						ret = pkg[ propName ];
+					}
+					break;
+
+			}
+
+			// Cast to string
+			if( ret !== null ) {
+				ret += "";
+			}
+
+			// Return
+			return ret;
+
+		},
+
+		/**
+		 * Loads the package.json file from the project root, if it exists.
+		 *
+		 * @private
+		 * @returns {object}
+		 */
+		_loadPackageJson: function() {
+
+			var me = this;
+
+			// We only need to load the package.json file once.
+			if( me.$packageJson !== undefined ) {
+				return me.$packageJson;
+			}
+
+			var projectRoot = me._getProjectRoot();
+			var packageJsonPath = PATH.join( projectRoot, "package.json" );
+			var pkg = {};
+
+			try {
+				pkg = require( packageJsonPath );
+			} catch( err ) {
+				// failed to load..
+				// this will be ignored
+			}
+
+			me.$packageJson = pkg;
+			return me.$packageJson;
+
+		},
+
+		/**
+		 * Parses a GitHub repository URL and returns an object explaining
+		 * its parts. If this method has any trouble processing the parts of the
+		 * URL (as with an invalid GitHub URL), then NULL will be returned
+		 * for all/most of the properties.
+		 *
+		 * @private
+		 * @param {string} url A valid GitHub repository URL
+		 * @returns {{_original: (string|*), httpsUrl: null, sshUrl: null, owner: null, repo: null}}
+		 */
+		_parseGitHubRepo: function( url ) {
+
+			var me = this;
+			var ret = {
+				_original: url,
+				httpsUrl: null,
+				sshUrl: null,
+				owner: null,
+				repo: null
+			};
+			var spl, tmp;
+
+			// Make lower case
+			url = url.toLowerCase();
+
+			// Check for URL type
+			if( _.startsWith( url, "http" ) ) {
+
+				// Parse an HTTP/HTTPS URL
+				spl = url.split("/");
+
+				if( spl[3] !== undefined ) {
+					ret.owner = spl[3];
+				}
+
+				if( spl[4] !== undefined ) {
+					ret.repo = spl[4];
+				}
+
+			} else if ( _.startsWith( url, "git" ) ) {
+
+				// Parse an SSH URL
+				if( url.indexOf(":") !== -1 ) {
+					tmp = url.substr( url.indexOf(":") + 1 );
+					tmp = _.trim( tmp );
+					tmp = tmp.replace( /\.git$/ig, "" );
+					spl = tmp.split("/");
+
+					if( spl[0] !== undefined ) {
+						ret.owner = spl[0];
+					}
+
+					if( spl[1] !== undefined ) {
+						ret.repo = spl[1];
+					}
+
+				}
+			}
+
+			// Build/rebuild proper URLS
+			if( ret.owner !== null && ret.repo !== null ) {
+
+				ret.httpsUrl = "https://github.com/" + ret.owner + "/" + ret.repo;
+				ret.sshUrl = "git@github.com:" + ret.owner + "/" + ret.repo + ".git";
+
+			}
+			return ret;
+
+		},
+
+		/**
+		 * Returns the project root directory as an absolute path.
+		 * (This is an alias for this.env.cwd)
+		 *
+		 * @private
+		 * @returns {string} The project root directory as an absolute path.
+		 */
+		_getProjectRoot: function() {
+			return this.env.cwd;
+		},
 
 		/**
 		 * Returns the [static] "base" prompt data.  These are prompts that are common
@@ -58,57 +262,79 @@ module.exports = yeoman.Base.extend(
 		_getBasePrompts: function() {
 
 			var me = this;
+			var appName = me._getKebabAppName();
 
 			return [
 				{
 					type        : "input",
 					name        : "projectName",
 					message     : "What is the name of this project?",
-					default     : me.appname,
+					default     : appName,
 					cacheMode	: "prefer-cache",
-					askAgain	: false
+					askAgain	: false,
+					derive      : function( promptData ) {
+						return me._loadPackageValue("name");
+					}
 				}, {
 					type        : "input",
 					name        : "projectDesc",
 					message     : "Please describe this project:",
 					default     : "",
 					cacheMode	: "prefer-cache",
-					askAgain	: false
+					askAgain	: false,
+					derive      : function( promptData ) {
+						return me._loadPackageValue("description");
+					}
 				}, {
 					type        : "input",
 					name        : "projectVersion",
 					message     : "What is the starting version for this project?",
 					default     : "0.1.0",
 					cacheMode	: "prefer-cache",
-					askAgain	: false
+					askAgain	: false,
+					derive      : function( promptData ) {
+						return me._loadPackageValue("version");
+					}
 				}, {
 					type        : "input",
 					name        : "fullName",
 					message     : "What is your full name?",
 					default     : "",
 					cacheMode	: "prefer-cache",
-					askAgain	: false
+					askAgain	: false,
+					derive      : function( promptData ) {
+						return me._loadPackageValue("author.name");
+					}
 				}, {
 					type        : "input",
 					name        : "emailAddress",
 					message     : "What is your email address?",
 					default     : "",
 					cacheMode	: "prefer-cache",
-					askAgain	: false
+					askAgain	: false,
+					derive      : function( promptData ) {
+						return me._loadPackageValue("author.email");
+					}
 				}, {
 					type        : "input",
 					name        : "githubOwner",
 					message     : "Which GitHub user or organization owns the repo for this project?",
 					default     : "github",
 					cacheMode	: "prefer-cache",
-					askAgain	: false
+					askAgain	: false,
+					derive      : function( promptData ) {
+						return me._loadPackageValue("github.owner");
+					}
 				}, {
 					type        : "input",
 					name        : "gitRepoName",
 					message     : "What is the name of this project's Git repository?",
-					default     : me.appname,
+					default     : appName,
 					cacheMode	: "prefer-cache",
-					askAgain	: false
+					askAgain	: false,
+					derive      : function( promptData ) {
+						return me._loadPackageValue("github.repo");
+					}
 				}, {
 					type        : "input",
 					name        : "copyrightHolder",
@@ -119,7 +345,27 @@ module.exports = yeoman.Base.extend(
 				}
 			];
 
-			// todo: remove or replace gitGroup above
+		},
+
+		/**
+		 * Returns the automatically-derived application name
+		 * as kebab case.
+		 *
+		 * @example
+		 * console.log( _getKebabAppName() );
+		 * // -> my-application
+		 *
+		 * @private
+		 * @returns {string} The application name, in kebab case.
+		 */
+		_getKebabAppName: function() {
+
+			let me = this;
+			let ret = me.appname;
+			ret = ret.toLowerCase();
+			ret = _.kebabCase( ret );
+			ret = _.trim( ret );
+			return ret;
 
 		},
 
@@ -345,6 +591,9 @@ module.exports = yeoman.Base.extend(
 			var me = this;
 			var final = [];
 
+			// Read user-level overrides file, if available..
+			me._readUserPromptOverrides();
+
 			// Send each prompt item to _getFinalPromptForOne
 			_.each( promptData, function( pd ) {
 
@@ -374,6 +623,7 @@ module.exports = yeoman.Base.extend(
 			var me = this;
 			var cachedValue;
 			var memoryValue;
+			var fnDerive, derivedValue;
 
 			// Apply default for 'cacheMode'
 			if( onePrompt.cacheMode === undefined || onePrompt.cacheMode === undefined ) {
@@ -383,6 +633,34 @@ module.exports = yeoman.Base.extend(
 			// Apply default for 'cacheMode'
 			if( onePrompt.askAgain === undefined || onePrompt.askAgain !== true ) {
 				onePrompt.askAgain = false;
+			}
+
+			// Process derived values, such as those that can be
+			// read from the `package.json` file.
+			if( onePrompt.derive !== undefined && typeof onePrompt.derive === "function" ) {
+
+				// Bind the derive function
+				fnDerive = onePrompt.derive.bind( me );
+
+				// Call the derive function
+				derivedValue = fnDerive( onePrompt );
+
+				// If the derive function returns NULL, we will skip,
+				// otherwise we will use the derived value.
+				if( derivedValue !== null ) {
+
+					// Load the value from the cache
+					me._overridePrompt( onePrompt, derivedValue );
+
+					this.log(
+						"Using " + chalk.magenta("derived") + " value for " + chalk.cyan( onePrompt.name ) + ": " + chalk.gray( derivedValue )
+					);
+
+					// .. and do not prompt the user ..
+					return null;
+
+				}
+
 			}
 
 			// Get the stored value from the configuration cache
@@ -411,6 +689,33 @@ module.exports = yeoman.Base.extend(
 				onePrompt.default = cachedValue;
 
 			}
+
+			// Check the user prompt overrides..
+			if( global.$userPromptOverrides[ onePrompt.name ] !== undefined ) {
+
+				cachedValue = global.$userPromptOverrides[ onePrompt.name ];
+
+				// The value was found in .yo-rc.overrides.json, the .cacheMode
+				// setting will tell us what to do next.
+				if( onePrompt.cacheMode.toLowerCase() === "prefer-cache" ) {
+
+					// Load the value from the cache
+					me._overridePrompt( onePrompt, cachedValue );
+
+					this.log(
+						"Using " + chalk.magenta("~/.yo-rc.overrides.json") + " value for " + chalk.cyan( onePrompt.name ) + ": " + chalk.gray( cachedValue )
+					);
+
+					// .. and do not prompt the user ..
+					return null;
+
+				}
+
+				onePrompt.default = cachedValue;
+
+			}
+
+			//global.$userPromptOverrides
 
 			// Now we need to check to see if this generator is being used
 			// as a partial and if the question has already been answered
@@ -523,9 +828,92 @@ module.exports = yeoman.Base.extend(
 		 */
 		_initPromptAnswerCache: function() {
 
+			let me = this;
+
 			if( global.$promptAnswers === undefined ) {
+
+				// Initialize the object
 				global.$promptAnswers = {};
+
 			}
+
+		},
+
+		/**
+		 * Checks for and reads user prompt answer defaults from
+		 * `~/.yo-rc.overrides.json`.
+		 *
+		 * @private
+		 */
+		_readUserPromptOverrides: function() {
+
+			var me = this;
+			var userOverridesPath = process.env.HOME + "/.yo-rc.overrides.json";
+			var overridesJson, overridesObj;
+
+			// We only need to do this once
+			if( global.$userPromptOverrides !== undefined ) {
+				return;
+			}
+			global.$userPromptOverrides = {};
+
+			// Check to see if the file exists and is readable
+			try {
+				fs.accessSync( userOverridesPath, fs.constants.R_OK | fs.constants.W_OK );
+				me.log(
+					"Found " + chalk.magenta("user overrides") + " at " + chalk.cyan( userOverridesPath )
+				);
+			} catch (err) {
+				me.log(
+					"Missing " + chalk.magenta("user overrides") + " at " + chalk.cyan( userOverridesPath ) + " (skipping)"
+				);
+
+				// Skip
+				return;
+			}
+
+			// Read the user overrides file
+			try {
+				overridesJson = fs.readFileSync( userOverridesPath, {
+					encoding: "utf-8"
+				});
+			} catch (err) {
+				me.log(
+					chalk.red( "An error occured while attempting to read the user overrides file!" )
+				);
+				console.log("\n\n");
+				console.log( err );
+				console.log("\n\n");
+				process.exit(1);
+			}
+
+			// Parse the JSON
+			try {
+				overridesObj = JSON.parse( overridesJson );
+			} catch (err) {
+				me.log(
+					chalk.red( "An error occured while attempting to parse the user overrides file's JSON!" )
+				);
+				console.log("\n\n");
+				console.log( err );
+				console.log("\n\n");
+				process.exit(1);
+			}
+
+			// Extract the configuration for this generator
+			if( overridesObj[ me.config.name ] === undefined ) {
+				me.log(
+					chalk.magenta("User overrides") + " file does not have a " + chalk.cyan( me.config.name ) + " property; skipping."
+				);
+
+				// Skip
+				return;
+			} else {
+				overridesObj = overridesObj[ me.config.name ];
+			}
+
+			// Load values
+			global.$userPromptOverrides = overridesObj;
 
 		},
 
@@ -566,7 +954,7 @@ module.exports = yeoman.Base.extend(
 					function( props ) {
 
 						// Handle the input
-						me._handlePromptInput( props );
+						me._handlePromptInput( props, allPrompts );
 
 						// Exec Callback
 						cb();
@@ -592,37 +980,162 @@ module.exports = yeoman.Base.extend(
 		 * Called after the user answers all of the prompts.
 		 *
 		 * @access private
-		 * @param {object} props The user's answers
+		 * @param {object} allPropertyValues The user's answers
+		 * @param {object} allPromptConfigs All prompt configurations, for all properties.
 		 * @returns {void}
 		 */
-		_handlePromptInput: function( props ) {
+		_handlePromptInput: function( allPropertyValues, allPromptConfigs ) {
 
 			var me = this;
 
 			// Load values from the prompt override cache
 			me._initPromptOverrideStore();
 			_.each( me.$promptOverrides, function( val, promptName ) {
-				props[ promptName ] = val.value;
+				allPropertyValues[ promptName ] = val.value;
+			});
+
+			// Apply advanced prompt processing (composition, validation, parsing)
+			_.each( allPropertyValues, function( val, promptName ) {
+				allPropertyValues[ promptName ] = me._finalizePropertyValue( promptName, val, allPromptConfigs, allPropertyValues );
 			});
 
 			// Update the config and store the answers in memory
 			// in case they can be reused in another sub-generator...
 			me._initPromptAnswerCache();
-			_.each( props, function( val, key ) {
+			_.each( allPropertyValues, function( val, key ) {
 				me.config.set( key, val );
 				global.$promptAnswers[ key ] = val;
 			});
 
 			// Store the properties
-			me.props = props;
+			me.props = allPropertyValues;
 
 			// Parse base properties
-			me._parseBaseProperties( props );
+			me._parseBaseProperties( allPropertyValues );
+
+		},
+
+		/**
+		 * Parses the input data from a single prompt.
+		 *
+		 * @access private
+		 * @param {string} promptName The name of the target prompt.
+		 * @param {object} promptValue The user's answers for the target prompt.
+		 * @param {object} allPrompts All prompt configurations, for all properties.
+		 * @param {object} allValues All property values (though some may still
+		 * require additional processing and the values within this object
+		 * may not be final).
+		 * @returns {*} The updated value for the target prompt, which may or
+		 * may not be altered from the value passed as `promptValue`.
+		 */
+		_finalizePropertyValue: function( promptName, promptValue, allPrompts, allValues ) {
+
+			// Locals
+			var me = this;
+			var promptConfig = null;
+			var validationMsg;
+
+			// Resolve the prompt configuration for THIS property.
+			_.each( allPrompts, function( prompt ) {
+				if( prompt.name === promptName ) {
+					promptConfig = prompt;
+					return false; // stop searching
+				} else {
+					return true;  // continue searching
+				}
+			});
+
+			// If the prompt configuration could not be found, then the
+			// value was provided from another source, such as a different
+			// sub-generator, and processing it again would be redundant.
+			if( promptConfig === null ) {
+				return promptValue;
+			}
+
+			// If the prompt configuration specifies a 'compose'
+			// function, then we'll execute it IF the promptValue
+			// was left as its default value.
+			if( promptConfig.compose !== undefined
+				&& typeof promptConfig.compose === "function"
+				&& promptConfig.default === promptValue ) {
+
+				// Bind the compose function
+				tmpFn = promptConfig.compose.bind( me );
+
+				//compose: function( promptName, allValues, promptConfig, allPrompts )
+				tmpValue = tmpFn( promptName, allValues, promptConfig, allPrompts );
+
+				// If the compose function returns NULL or UNDEFINED,
+				// then we will not alter the promptValue.
+				if( tmpValue !== null && tmpValue !== undefined ) {
+					promptValue = tmpValue;
+				}
+
+			}
+			
+			// Apply the parse function, if specified
+			if( promptConfig.parse !== undefined
+				&& typeof promptConfig.parse === "function" ) {
+
+				// Bind the parse function
+				tmpFn = promptConfig.parse.bind( me );
+
+				//parse: function( promptName, promptValue, promptConfig, allValues, allPrompts )
+				tmpValue = tmpFn( promptName, promptValue, promptConfig, allValues, allPrompts );
+
+				// If the parse function returns NULL or UNDEFINED,
+				// then we will not alter the promptValue.
+				if( tmpValue !== null && tmpValue !== undefined ) {
+					promptValue = tmpValue;
+				}
+
+			}
+
+			// Apply validation..
+			if( promptConfig.validationRegex !== undefined &&
+				typeof promptConfig.validationRegex === "object" ) {
+
+				if( !promptConfig.validationRegex.test( (promptValue + "") ) ) {
+
+					if( promptConfig.validationFailureMessage !== undefined &&
+						promptConfig.validationFailureMessage !== null ) {
+
+						validationMsg = promptConfig.validationFailureMessage + "";
+
+					} else {
+
+						validationMsg = "The provided value does not appear to be valid!";
+
+					}
+
+					// Output and, optionally, exit..
+					if( promptConfig.validateStrictly === true ) {
+
+						me.log( "\n\n\n" );
+						me.log( chalk.red("Error:") + " Prompt value validation failed!" );
+						me.log( chalk.yellow( validationMsg ) );
+						me.log( chalk.cyan( promptConfig.name + ": " ) + chalk.grey( promptValue ) );
+						me.log( "\n\n\n" );
+						process.exit(1);
+
+					} else {
+
+						me.log( chalk.yellow("Warning! ") + chalk.cyan( promptConfig.name + ": " ) + validationMsg );
+
+					}
+
+				}
+
+			}
+
+			// Return the final value
+			return promptValue;
 
 		},
 
 		/**
 		 * Parses the base prompt data (properties)
+		 * todo: this should be replaced with 'parse' functions on the global prompts config.
 		 *
 		 * @access private
 		 * @param {object[]} props
@@ -656,7 +1169,7 @@ module.exports = yeoman.Base.extend(
 				props.parsedRepoName = "";
 			}
 
-			// Trim dashes from front and back of gir repo
+			// Trim dashes from front and back of git repo
 			if( props.parsedRepoName !== undefined ) {
 				props.parsedRepoName = props.parsedRepoName.replace(/(^-|-$)/ig, '');
 			} else {

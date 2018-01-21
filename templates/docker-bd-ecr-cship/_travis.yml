@@ -17,6 +17,7 @@ install:
 before_script:
 - chmod +x scripts -R
 script:
+- npm run ci:base:rebuild
 - npm run deploy:build
 - npm run ci:deploy:push
 - npm run ci:deploy:cs

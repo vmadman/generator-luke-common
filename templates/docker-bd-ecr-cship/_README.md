@@ -5,10 +5,10 @@
 
 <%= projectDesc %>
 
-The images produced by this project are deployed to AWS ECR which are
-later deployed, as containers, to a [ContainerShip](https://cloud.containership.io/)
+The images produced by this project are deployed to AWS ECR
+(as `<%= ecrNamespace %>/<%= dockerImageName %>`) which are later
+deployed, as containers, to a [ContainerShip](https://cloud.containership.io/)
 cluster.
-
 
 ## Documentation
 
